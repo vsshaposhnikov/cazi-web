@@ -1,0 +1,108 @@
+.loader-inner{
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(28, 28, 71, .5);
+  &:after{
+    content: '';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .ball-scale-multiple{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -15em;
+
+  }
+}
+
+$primary-color: rgba(28, 28, 71, 1) !default;
+$ball-size: 10px !default;
+$margin: 10px !default;
+$line-height: 35px !default;
+$line-width: 4px !default;
+
+@mixin global-bg() {
+  background-color: $primary-color;
+}
+
+@mixin global-animation() {
+  animation-fill-mode: both;
+}
+
+@mixin balls() {
+  @include global-bg();
+
+  width: $ball-size;
+  height: $ball-size;
+  border-radius: 100%;
+  margin: $margin;
+}
+
+@mixin lines() {
+  @include global-bg();
+
+  width: $line-width;
+  height: $line-height;
+  border-radius: 2px;
+  margin: $margin;
+}
+
+
+@function delay($interval, $count, $index) {
+  @return ($index * $interval) - ($interval * $count);
+}
+
+
+$size: 175px;
+
+@keyframes ball-scale-multiple {
+  0% {
+    transform: scale(0.0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@mixin ball-scale-multiple ($n: 3, $start: 2) {
+  @for $i from $start through $n {
+    > div:nth-child(#{$i}) {
+      animation-delay: delay(0.8s, $n, $i - 1);
+    }
+  }
+}
+
+.ball-scale-multiple {
+  @include ball-scale-multiple();
+
+  position: relative;
+  transform: translateY(-$size / 2);
+
+  > div {
+    @include balls();
+    @include global-animation();
+
+    position: absolute;
+    left: -30px;
+    top: 0;
+    opacity: 0;
+    margin: 0;
+    width: $size;
+    height: $size;
+    animation: ball-scale-multiple 1s 0s linear infinite;
+  }
+}

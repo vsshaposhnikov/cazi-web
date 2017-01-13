@@ -1,0 +1,38 @@
+footer{
+  background-color: #515150;
+  display: block;
+  .footer{
+    width: 800px;
+    min-height: 330px;
+    padding: 35px 0;
+    margin: 0 auto;
+    color: #ffffff;
+    .logo-side{
+      p{
+        font: 300 2.4em 'CenturyGothic-Regular';
+        display: inline-block;
+        vertical-align: middle;
+        text-transform: uppercase;
+      }
+      .logo{
+        width: 85px;
+        height: 65px;
+        margin-right: 30px;
+        display: inline-block;
+        background: local url('assets/images/logo.png') no-repeat center;
+        background-size: contain;
+      }
+    }
+    .contacts-side{
+      .contacts-block{
+        display: block;
+        margin: 25px 0;
+        p,a{
+          margin: 5px 0;
+          letter-spacing: 1px;
+          font: 300 1.4em 'CenturyGothic-Bold';
+        }
+      }
+    }
+  }
+}

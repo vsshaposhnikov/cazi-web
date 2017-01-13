@@ -1,0 +1,21 @@
+<header></header>
+<navigation></navigation>
+<div class="auth-wrap">
+    <div class="auth-block">
+        <p ng-click="userData.login='sevabrov';userData.password='sevabrov';">Увійти</p>
+        <form name="formData" novalidate ng-submit="login(formData)">
+            <div class="input-block">
+                <input type="text" name="login" ng-model="userData.login" placeholder="Логін" required>
+                <div ng-messages="formData.login.$error" role="alert" ng-if="formData.login.$dirty">
+                    <div class="message" ng-message="required">Поле логін - не може бцти порожнім</div>
+                </div>
+                <input type="password" name="password" ng-model="userData.password" placeholder="Пароль" required>
+                <div ng-messages="formData.password.$error" role="alert" ng-if="formData.password.$dirty">
+                    <div class="message" ng-message="required">Поле пароль - не може бути порожнім</div>
+                </div>
+                <a href="">Зареєструватись</a>
+            </div>
+            <button class="blue-btn">Увійти</button>
+        </form>
+    </div>
+</div>

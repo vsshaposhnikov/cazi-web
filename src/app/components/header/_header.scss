@@ -1,0 +1,24 @@
+header{
+  background-color: #ffffff;
+  .header{
+    text-align: center;
+    .logo-block {
+      display: block;
+      margin: 0 auto;
+      padding: 5px 0;
+      .logo {
+        width: 90px;
+        height: 115px;
+        display: inline-block;
+        vertical-align: middle;
+        background: local url('assets/images/logo.png') no-repeat center;
+        background-size: contain;
+      }
+      p{
+        color: #3d3d3d;
+        display: inline-block;
+        font: 300 3.1em 'CenturyGothic-Regular';
+      }
+    }
+  }
+}

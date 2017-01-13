@@ -1,9 +1,15 @@
 {
-  "name": "fountain-inject",
+  "name": "cazi-web",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "^1.5.0",
-    "angular-ui-router": "1.0.0-beta.1"
+    "angular": "1.6.1",
+    "angular-ui-router": "1.0.0-beta.1",
+    "angular-ui-notification": "^0.3.5",
+    "angular-local-storage": "^0.5.2",
+    "ng-dialog": "^0.6.6",
+    "ng-scrollbars": "^0.0.11",
+    "components-font-awesome": "^4.7.0",
+    "angular-messages": "^1.6.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0"

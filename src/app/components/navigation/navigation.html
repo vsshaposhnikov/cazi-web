@@ -1,0 +1,9 @@
+<div class="navigation" ng-controller="navigationController">
+    <div class="center">
+        <ul>
+            <li ng-repeat="item in menu" ui-sref-active="active">
+                <a ui-sref="{{item.state}}">{{item.title}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

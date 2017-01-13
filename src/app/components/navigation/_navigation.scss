@@ -1,0 +1,25 @@
+navigation{
+  .navigation{
+    background-color: #515150;
+    text-align: center;
+    ul{
+      display: inline-block;
+      li{
+        display: inline-block;
+        vertical-align: middle;
+        &:hover{
+          background-color: #6e6e6d;
+        }
+        &.active{
+          background-color: #6e6e6d;
+        }
+        a{
+          font: 300 1.2em 'CenturyGothic-Regular';
+          color: #ffffff;
+          display: inline-block;
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+}
