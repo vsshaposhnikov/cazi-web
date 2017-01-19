@@ -1,6 +1,6 @@
 'use strict';
 angular.module('caziWeb')
-    .controller('authorizationController', function($scope, $state, Notification, restFullApi, $rootScope, localStorageService){
+    .controller('authorizationController', function($scope, $state, restFullApi, $rootScope, ngDialog, localStorageService){
         $scope.userData = {};
         $rootScope.isLoading = true;
 
@@ -8,34 +8,33 @@ angular.module('caziWeb')
             if(form.$valid){
                 restFullApi.sendPost('login', $scope.userData)
                     .then(function(user){
-                            $scope.getAllMerchantPointsByUser = function () {
-                                restFullApi.sendPost('getAllMerchantPointsByUser', $rootScope.userInfo)
-                                .then(function(points){
-                                    $rootScope.isLoading = false;
-                                    if(points != undefined){
-                                        //console.log(points);
-                                        $rootScope.merchantPoints = points.data;
-                                        $rootScope.selectedPoint = points.data[0];
-                                        localStorageService.set('points', points.data);
-                                        localStorageService.set('selectedPoint', points.data[0]);
-                                    }
-                                })
-                            };
                             if(user != undefined){
                                 $rootScope.userInfo = user.data;
                                 if($rootScope.userInfo.role === 'admin') {
                                     localStorageService.set('user', $rootScope.userInfo);
-                                    $scope.getAllMerchantPointsByUser();
-                                    $rootScope.isLoading = false;
-                                    $state.go('statistics');
+                                    $state.go('adminDashboard');
                                 }
-                                else {
+                                if($rootScope.userInfo.role === 'user') {
+                                    localStorageService.set('user', $rootScope.userInfo);
+                                    $state.go('userDashboard');
+                                }
+/*                                else {
                                     $state.go('authorization');
                                     Notification.error({message: 'Не достаточно прав доступа!', title: 'Ошибка авторизации'});
-                                }
+                                }*/
                             }
                     })
             }
         };
+
+        $scope.showRegistrationInfo = function () {
+            ngDialog.open({
+                template: 'app/modalTemplates/registrationInformation.html',
+                showClose: false,
+                width: '40%',
+                closeByNavigation: true,
+            });
+        };
+
 
     });

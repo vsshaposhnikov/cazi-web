@@ -1,6 +1,6 @@
 angular
     .module('caziWeb', ['ui.router', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'ngScrollbars'])
-    .constant('API_URL', 'http://loyalty-server/api/');
+    .constant('API_URL', 'http://cazi-server/api/');
     //.constant('API_URL', 'http://loyalty.devtech.kz/server/public/api/')
     /*.run(function ($rootScope, localStorageService, $location) {
         var user = localStorageService.get('user');

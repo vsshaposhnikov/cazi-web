@@ -1,0 +1,32 @@
+.ngdialog {
+  &.ngdialog-theme-default{
+    .ngdialog-content{
+      border-radius: 3px;
+      background-color: #f7f7f7;
+      box-sizing: border-box;
+      box-shadow: $shadow;
+      .modal-content{
+        padding: 20px;
+        p{
+          font: 300 1.6em 'CenturyGothic-Regular';
+          line-height: 24px;
+        }
+      }
+      .modal-footer{
+        display: block;
+        padding: 20px;
+        .blue-btn{
+          padding: 10px 20px;
+          margin-right: 25px;
+          &:disabled{
+            background-color: #b7b7b7;
+            cursor: not-allowed;
+            &:hover{
+              background-color: #838383;
+            }
+          }
+        }
+      }
+    }
+  }
+}

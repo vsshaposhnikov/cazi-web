@@ -18,7 +18,7 @@
 }
 .blue-btn{
   background-color: #1a76bc;
-  font: 300 1.8em 'CenturyGothic-Regular';
+  font: 300 1.6em 'CenturyGothic-Regular';
   color: #ffffff;
   padding: 10px 20px;
   border-radius: 2px;
@@ -59,84 +59,8 @@
     box-shadow: none;
   }
 }
-.select-drop-down{
-  margin-bottom: 25px;
-  position: relative;
-  .selected-item{
-    p{
-      font: 300 1.5em 'Roboto-Light';
-      color: #1c1c47;
-      padding: 15px 10px;
-      border-bottom: 1px solid #d6d6d6;
-      transition: all .3s;
-      position: relative;
-      &:after{
-        position: absolute;
-        content: '';
-        width: 0;
-        height: 0;
-        right: 15px;
-        top: 20px;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 6px solid #d6d6d6;
-        transition: all .3s;
-      }
-      &:hover{
-        transition: all .3s;
-        cursor: pointer;
-        color: #6342a8;
-        border-bottom: 1px solid #747474;
-        &:after{
-          border-top: 6px solid #747474;
-        }
-      }
-    }
-  }
-  .select-items{
-    display: none;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-    border: 1px solid #d6d6d6;
-    top: 48px;
-    background-color: #f7f7f7;
-    ul{
-      li{
-        padding: 15px 0;
-        transition: all .3s;
-        &:hover{
-          padding-left: 10px;
-          transition: all .3s;
-          cursor: pointer;
-          background-color: #efefef;
-          p{
-            color: #6342a8;
-          }
-        }
-        p{
-          font: 300 1.5em 'Roboto-Light';
-          color: #1c1c47;
-          padding: 0 10px;
-        }
-      }
-    }
-  }
-  &.opened{
-    .select-items{
-      display: block;
-    }
-    .selected-item{
-      p{
-        &:after{
-          transform: rotate(180deg);
-        }
-      }
-    }
-  }
-}
 input{
-  font: 300 1.8em 'CenturyGothic-Regular';
+  font: 300 1.6em 'CenturyGothic-Regular';
   color: #1a76bc;
   padding: 11px 10px;
   border: 1px solid #1a76bc;

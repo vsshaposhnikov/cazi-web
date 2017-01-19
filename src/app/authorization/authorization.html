@@ -13,7 +13,7 @@
                 <div ng-messages="formData.password.$error" role="alert" ng-if="formData.password.$dirty">
                     <div class="message" ng-message="required">Поле пароль - не може бути порожнім</div>
                 </div>
-                <a href="">Зареєструватись</a>
+                <a ng-click="showRegistrationInfo()">Зареєструватись</a>
             </div>
             <button class="blue-btn">Увійти</button>
         </form>
