@@ -5,7 +5,7 @@ angular
 /** @ngInject */
 function routesConfig($urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/');
 }
 function NotificationProvider() {
     NotificationProvider.setOptions({

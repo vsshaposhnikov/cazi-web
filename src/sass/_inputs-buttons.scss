@@ -17,63 +17,34 @@
   }
 }
 .blue-btn{
-  background-color: #1a76bc;
+  background-color: #68b4e4;
   font: 300 1.6em 'CenturyGothic-Regular';
   color: #ffffff;
   padding: 10px 20px;
-  border-radius: 2px;
   cursor: pointer;
-  box-shadow: $shadow;
   transition: all .3s;
-  &:disabled{
-    background-color: #b7b7b7;
-    cursor: not-allowed;
-    &:hover{
-      background-color: #838383;
-    }
-  }
   &:hover{
     box-shadow: none;
     transition: all .3s;
-    background-color: #135386;
+    background-color: #5990bb;
   }
 }
-.transparent-btn{
-  font: 300 1.5em 'Roboto-Light';
-  color: #838383;
-  position: relative;
-  background-color: transparent;
-  padding: 6px 20px;
-  border-radius: 2px;
-  transition: all .5s;
-  box-shadow: $shadow;
-  i{
-    color: #8249ce;
-    font-size: 1.2em;
-    margin-right: 10px;
-  }
-  &:hover{
-    background-color: #e5e5e5;
-    transition: all .5s;
-    cursor: pointer;
-    box-shadow: none;
-  }
-}
+
 input{
   font: 300 1.6em 'CenturyGothic-Regular';
-  color: #1a76bc;
+  color: #68b4e4;
   padding: 11px 10px;
-  border: 1px solid #1a76bc;
+  border: 1px solid #68b4e4;
   transition: all .3s;
   outline: none;
   width: 100%;
   margin: 0 0 15px 0;
   display: block;
   background-color: rgba(255, 255, 255, 0.6);
-  &::-webkit-input-placeholder {color:#1a76bc;}
-  &::-moz-placeholder          {color:#1a76bc;}/* Firefox 19+ */
-  &:-moz-placeholder           {color:#1a76bc;}/* Firefox 18- */
-  &:-ms-input-placeholder      {color:#1a76bc;}
+  &::-webkit-input-placeholder {color:#68b4e4;}
+  &::-moz-placeholder          {color:#68b4e4;}/* Firefox 19+ */
+  &:-moz-placeholder           {color:#68b4e4;}/* Firefox 18- */
+  &:-ms-input-placeholder      {color:#68b4e4;}
 }
 /*circle radio stylesheet start*/
 input[type=radio] {

@@ -6,6 +6,16 @@ header{
       display: block;
       margin: 0 auto;
       padding: 5px 0;
+      &.authenticated{
+        float: left;
+        width: 60%;
+        p{
+          max-width: 80%;
+          margin-left: 25px;
+          text-align: left;
+        }
+
+      }
       .logo {
         width: 90px;
         height: 115px;
@@ -18,6 +28,92 @@ header{
         color: #3d3d3d;
         display: inline-block;
         font: 300 3.1em 'CenturyGothic-Regular';
+      }
+    }
+    .account-block{
+      width: 35%;
+      min-height: 115px;
+      text-align: right;
+      padding: 5% 0;
+      margin-right: 35px;
+      .account-drop-down{
+        position: relative;
+        ul{
+          position: absolute;
+          right: -20px;
+          background-color: #ffffff;
+          display: none;
+          width: 60%;
+          top: 30px;
+          box-shadow: 4px 0px 30px -1px rgba(117, 117, 117, 0.28);
+          z-index: 2;
+          padding: 15px 0;
+          &:before{
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: -10px;
+            right: 5px;
+            content: '';
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #FFFFFF;
+          }
+          li{
+            text-align: left;
+            a{
+              font: 300 1.4em 'CenturyGothic-Regular';
+              color: #525c69;
+              padding: 5px 15px;
+              display: block;
+            }
+            &:hover{
+              background-color: #ededed;
+            }
+          }
+
+        }
+        &.opened{
+          p{
+            &:after{
+              transform: rotate(-180deg);
+            }
+          }
+          ul{
+            display: block;
+          }
+        }
+        p{
+          position: relative;
+          display: inline-block;
+          font: 300 1.4em 'CenturyGothic-Regular';
+          cursor: pointer;
+          transition: all .3s;
+          &:before{
+            width: 20px;
+            height: 35px;
+            position: absolute;
+            left: -30px;
+            top: -7px;
+            content: '';
+            background: local url("assets/images/icons/user.png") no-repeat center;
+            background-size: contain;
+          }
+          &:after{
+            width: 15px;
+            height: 35px;
+            position: absolute;
+            right: -25px;
+            top: -7px;
+            content: '';
+            background: local url("assets/images/icons/arrow.png") no-repeat center;
+            background-size: contain;
+          }
+          &:hover{
+            opacity: .7;
+            transition: all .3s;
+          }
+        }
       }
     }
   }

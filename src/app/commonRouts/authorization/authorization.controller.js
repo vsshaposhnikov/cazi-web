@@ -8,14 +8,15 @@ angular.module('caziWeb')
             if(form.$valid){
                 restFullApi.sendPost('login', $scope.userData)
                     .then(function(user){
+                        console.log(user);
                             if(user != undefined){
-                                $rootScope.userInfo = user.data;
-                                if($rootScope.userInfo.role === 'admin') {
-                                    localStorageService.set('user', $rootScope.userInfo);
+                                $rootScope.user = user.data;
+                                if($rootScope.user.role === 'admin') {
+                                    localStorageService.set('user', $rootScope.user);
                                     $state.go('adminDashboard');
                                 }
-                                if($rootScope.userInfo.role === 'user') {
-                                    localStorageService.set('user', $rootScope.userInfo);
+                                if($rootScope.user.role === 'user') {
+                                    localStorageService.set('user', $rootScope.user);
                                     $state.go('userDashboard');
                                 }
 /*                                else {

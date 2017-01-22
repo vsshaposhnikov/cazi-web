@@ -2,24 +2,29 @@
         "sass/fonts",
         "sass/inputs-buttons",
         "sass/datepicker",
-        "app/authorization/authorization",
+        "app/commonRouts/authorization/authorization",
+        "app/userRouts/userDashboard/userDashboard",
+        "app/adminRouts/usersList/usersList",
+        "app/adminRouts/userNotifications/userNotifications",
         "app/modalTemplates/modals",
         "app/components/header/header",
         "app/components/footer/footer",
         "app/components/navigation/navigation";
 .center{
-  max-width: 1260px;
+  max-width: 1120px;
   min-width: 320px;
   width: 100%;
   padding: 0 20px;
   margin: 0 auto;
+  &.white{
+    background-color: #ffffff;
+    min-height: 400px;
+  }
 }
 .view-wrap{
-  width: 100%;
-  padding: 85px 0;
-  background-color: #f7f7f7;
-  display: block;
+  background-color: #e2e7ef;
 }
+
 .close{
   width: 20px;
   height: 20px;
@@ -71,7 +76,7 @@ form{
     font: 300 1.3em 'Roboto-Light';
     font-style: italic;
     margin: 5px 0  20px 10px;
-    color: #8249ce;
+    color: #0967bc;
     transition: all .5s;
   }
   span{

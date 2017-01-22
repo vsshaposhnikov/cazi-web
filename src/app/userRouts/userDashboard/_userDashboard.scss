@@ -1,0 +1,14 @@
+.actions{
+  width: 46.8%;
+  height: 340px;
+  margin: 7% 0;
+  display: inline-block;
+  vertical-align: middle;
+  &.blue{
+    background-color: #68b4e4;
+  }
+  &.yellow{
+    margin-left: 6%;
+    background-color: #eaad44;
+  }
+}

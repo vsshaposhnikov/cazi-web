@@ -2,5 +2,4 @@
 angular.module('caziWeb')
     .controller('userDashboardController', function(){
 
-
     });

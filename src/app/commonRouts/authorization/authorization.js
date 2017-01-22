@@ -4,7 +4,7 @@ angular
         $stateProvider
             .state('authorization', {
                 url: '/',
-                templateUrl: 'app/authorization/authorization.html',
+                templateUrl: 'app/commonRouts/authorization/authorization.html',
                 controller: 'authorizationController'
             });
     });

@@ -1,8 +1,17 @@
 <div class="header" ng-controller="headerController">
     <div class="center clear-fix">
-        <div class="logo-block">
-            <a ui-sref="statistics" class="logo"></a>
+        <div class="logo-block" ng-class="{ 'authenticated': user}">
+            <a ui-sref="authorization" class="logo"></a>
             <p>ЦЕНТР АНТИВІРУСНОГО ЗАХИСТУ ДЕРЖСПЕЦЗВ'ЯЗКУ УКРАЇНИ </p>
+        </div>
+        <div class="account-block fr" ng-show="user">
+            <div class="account-drop-down" drop-down>
+                <p>{{user.userInfo.firstName}} {{user.userInfo.lastName}}</p>
+                <ul>
+                    <li><a ui-sref="profile">Налаштування профілю</a></li>
+                    <li><a ng-click="logout()">Вийти</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

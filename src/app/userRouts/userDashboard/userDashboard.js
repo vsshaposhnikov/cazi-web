@@ -4,7 +4,8 @@ angular
         $stateProvider
             .state('userDashboard', {
                 url: '/userDashboard',
-                templateUrl: 'app/userDashboard/userDashboard.html',
-                controller: 'userDashboardController'
+                templateUrl: 'app/userRouts/userDashboard/userDashboard.html',
+                controller: 'userDashboardController',
+                roles: ['user']
             });
     });

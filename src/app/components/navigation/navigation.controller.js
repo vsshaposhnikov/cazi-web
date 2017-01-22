@@ -1,5 +1,5 @@
 angular.module('caziWeb')
-  .controller('navigationController', function($scope) {
+  .controller('navigationController', function($scope, $state) {
     $scope.menu = [
       {
         'title': 'Запитання та відповіді',
