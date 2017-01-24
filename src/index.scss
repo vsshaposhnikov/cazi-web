@@ -6,6 +6,7 @@
         "app/userRouts/userDashboard/userDashboard",
         "app/adminRouts/usersList/usersList",
         "app/adminRouts/userNotifications/userNotifications",
+        "app/adminRouts/createUser/createUser",
         "app/modalTemplates/modals",
         "app/components/header/header",
         "app/components/footer/footer",
@@ -65,22 +66,31 @@
   z-index: 100;
   border-radius: 3px;
   h3{
-    font: 400 1.8em 'Roboto-Regular';
+    font: 400 1.8em 'CenturyGothic-Regular';
   }
   .message{
-    font: 400 1.5em 'Roboto-Light';
+    font: 400 1.5em 'CenturyGothic-Regular';
+  }
+}
+.column{
+  width: 45%;
+  margin-right: 9.7%;
+  display: inline-block;
+  vertical-align: top;
+  &:last-child{
+    margin: 0;
   }
 }
 form{
   .message{
-    font: 300 1.3em 'Roboto-Light';
+    font: 300 1.3em 'CenturyGothic-Regular';
     font-style: italic;
     margin: 5px 0  20px 10px;
     color: #0967bc;
     transition: all .5s;
   }
   span{
-    font: 300 1.0em 'Roboto-Light';
+    font: 300 1.0em 'CenturyGothic-Regular';
     color: #838383;
     display: block;
     text-transform: uppercase;

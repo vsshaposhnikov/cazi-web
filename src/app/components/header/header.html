@@ -4,7 +4,7 @@
             <a ui-sref="authorization" class="logo"></a>
             <p>ЦЕНТР АНТИВІРУСНОГО ЗАХИСТУ ДЕРЖСПЕЦЗВ'ЯЗКУ УКРАЇНИ </p>
         </div>
-        <div class="account-block fr" ng-show="user">
+        <div class="account-block fr" ng-if="user">
             <div class="account-drop-down" drop-down>
                 <p>{{user.userInfo.firstName}} {{user.userInfo.lastName}}</p>
                 <ul>

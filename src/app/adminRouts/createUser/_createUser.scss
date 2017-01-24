@@ -1,42 +1,103 @@
-.auth-wrap{
-  width: 100%;
-  min-height: 550px;
-  padding-top: 7%;
+.step-line{
+  width: 70%;
   text-align: center;
-  background: url('assets/images/auth-bg.jpg') no-repeat center;
-  background-size: cover;
-  .auth-block{
-    width: 390px;
-    min-height: 380px;
-    padding: 25px 55px;
-    background-color: rgba(255, 255, 255, 0.7);
-    display: block;
-    margin: 0 auto;
+  margin: 0 auto;
+  padding: 50px 0;
+  .step{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 0;
+    width: 180px;
+    text-align: center;
+    position: relative;
+    margin-left: 20px;
+    background-color: #515150;
+    &:last-child{
+      &:after{
+        display: none;
+      }
+    }
     p{
-      font: 300 3.0em 'CenturyGothic-Bold';
-      color: #515150;
-      text-align: center;
-      padding-bottom: 20px;
-      text-transform: uppercase;
+      font: 400 1.4em 'CenturyGothic-Regular';
+      color: #ffffff;
     }
+    &:after{
+      position: absolute;
+      right: -20px;
+      top: 18px;
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: #515150;
+    }
+    &.active{
+      background-color: #eaad44;
+      p{
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+.information{
+  font: 400 1.4em 'CenturyGothic-Regular';
+  color: #838383;
+  padding: 60px 0 30px 0;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 70%;
+}
+.title{
+  font: 400 1.6em 'CenturyGothic-Regular';
+  color: #515150;
+  margin: 25px 0;
+  position: relative;
+  &.required{
+    display: inline-block;
+    &:after{
+      position: absolute;
+      right: -10px;
+      top: 0;
+      content: '*';
+      color: #68b4e4;
+    }
+  }
+}
+.first-step,
+.second-step,
+.third-step,
+.last-step{
+  h3{
+    color: #515150;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  span{
+    color: #515150;
+    margin-bottom: 5px;
+    font: 400 1.2em 'CenturyGothic-Regular';
+  }
+  input{
+    height: 37px;
+    color: #515150;
 
-    .input-block{
-      text-align: left;
-      margin: 25px 0;
-      input{
-        margin: 25px 0;
-      }
-      a{
-        color: #1a76bc;
-        font: 300 1.6em 'CenturyGothic-Regular';
-        border-bottom: 1px dashed #1a76bc;
-        display: inline;
-      }
-    }
-    .blue-btn{
-      width: 100%;
+  }
+}
+.third-step{
+  .column{
+    margin: 0 auto;
+    .purple-btn{
       display: block;
-      padding: 12px 25px;
+    }
+  }
+}
+.btn-line{
+  text-align: center;
+  padding: 40px 0;
+  .blue-btn{
+    line-height: 15px;
+    height: 37px;
+    &:first-child{
+      margin-right: 15px;
     }
   }
 }

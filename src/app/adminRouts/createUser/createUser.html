@@ -1,5 +1,30 @@
 <div class="view-wrap">
     <div class="center white">
-        <h1>Create new user</h1>
+        <div class="step-line">
+            <div class="step"  ng-repeat="step in steps" ng-class="{'active': step.class==createUserSwitch}"><p>{{step.name}}</p></div>
+        </div>
+        <div class="switch-wrap" ng-switch on="createUserSwitch">
+            <form name="formData">
+                <div class="first-step" ng-switch-when="firstStep">
+                    <div ng-include="'app/adminRouts/createUser/steps/step-1.html'"></div>
+                </div>
+            </form>
+            <div class="second-step" ng-switch-when="secondStep">
+                <div ng-include="'app/adminRouts/createUser/steps/step-2.html'"></div>
+            </div>
+            <div class="third-step" ng-switch-when="thirdStep">
+                <div ng-include="'app/adminRouts/createUser/steps/step-3.html'"></div>
+            </div>
+            <div class="last-step" ng-switch-when="lastStep">
+                <div ng-include="'app/adminRouts/createUser/steps/step-4.html'"></div>
+            </div>
+        </div>
+        <div class="btn-line">
+            <button class="blue-btn" ng-click="cancel()" ng-if="counter === 0">Отмена</button>
+
+            <button class="blue-btn" ng-click="prevStep()" ng-if="counter > 1 ">Назад</button>
+            <button class="blue-btn" ng-click="nextStep()" ng-disabled="formData.$invalid" ng-if="counter !== stepsForSwitch.length-1" >Дальше</button>
+            <button class="blue-btn" ng-click="createNewMerchantPoint()" ng-if="counter === stepsForSwitch.length-1">Сохранить</button>
+        </div>
     </div>
 </div>

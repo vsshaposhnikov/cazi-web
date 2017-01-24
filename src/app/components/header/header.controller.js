@@ -8,6 +8,7 @@ angular.module('caziWeb')
                   localStorageService.remove('user');
                   $rootScope.user = null;
                   $state.go('authorization');
+
               })
       };
   });

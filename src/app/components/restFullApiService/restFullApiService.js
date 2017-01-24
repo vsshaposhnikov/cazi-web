@@ -13,8 +13,8 @@ angular
                     switch (reason.data){
                         case 'invalid token':
                         case 'no token':
-                            $rootScope.user = {};
                             localStorageService.remove('user');
+                            $rootScope.user = null;
                             $state.go('authorization');
                             Notification.error({message: 'Ваш токен просрочен, авторизируйтесь снова. Сервисный код ошибки - '+ reason.data, title: 'Ошибка получения доступа'});
                             break;

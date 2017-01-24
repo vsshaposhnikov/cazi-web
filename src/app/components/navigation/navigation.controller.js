@@ -7,7 +7,7 @@ angular.module('caziWeb')
       },
       {
        'title': 'Перелік АВПЗ',
-       'state': 'avpzList'
+       'state': 'nomenclature'
        },
       {
         'title': 'Нормативна база',

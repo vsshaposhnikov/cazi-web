@@ -1,0 +1,42 @@
+    <div class="column">
+        <p class="title required">Персональні дані</p>
+        <span>повна назва установи</span>
+        <input type="text" name="organization" ng-model="newUserData.userInfo.organization" required>
+        <div ng-messages="formData.organization.$error" role="alert" ng-if="formData.organization.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+        <span>Ім'я, по батькові користувача</span>
+        <input type="text" name="firstName" ng-model="newUserData.userInfo.firstName" required>
+        <div ng-messages="formData.firstName.$error" role="alert" ng-if="formData.firstName.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+        <span>Прізвище користувача</span>
+        <input type="text" name="lastName" ng-model="newUserData.userInfo.lastName" required>
+        <div ng-messages="formData.lastName.$error" role="alert" ng-if="formData.lastName.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+        <span>Посада користувача</span>
+        <input type="text" name="position" ng-model="newUserData.userInfo.position" required>
+        <div ng-messages="formData.position.$error" role="alert" ng-if="formData.position.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+    </div>
+    <div class="column">
+        <p class="title required">Загальні дані</p>
+        <span>телефон користувача</span>
+        <input type="text" name="phone" ng-model="newUserData.userInfo.phone" required>
+        <div ng-messages="formData.phone.$error" role="alert" ng-if="formData.phone.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+        <span>email користувача</span>
+        <input type="text" name="email" ng-model="newUserData.email" ng-pattern="validationPatterns.emailCheck" required>
+        <div ng-messages="formData.email.$error" role="alert" ng-if="formData.email.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+            <div class="message" ng-message="pattern">Введіть коректний email</div>
+        </div>
+        <span>логін користувача</span>
+        <input type="text" name="login" ng-model="newUserData.login" required>
+        <div ng-messages="formData.login.$error" role="alert" ng-if="formData.login.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+    </div>

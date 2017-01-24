@@ -55,5 +55,8 @@ angular
             }
         );
 
-
+        $rootScope.validationPatterns = {
+            emailCheck: "^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*",
+            textCheck: "^[а-яА-ЯёЁa-zA-Z ]+$"
+        };
     });
