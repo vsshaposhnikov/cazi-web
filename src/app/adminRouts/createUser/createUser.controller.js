@@ -6,7 +6,7 @@ angular.module('caziWeb')
 
         $scope.counter = 0;
 
-        $scope.createUserSwitch = $scope.stepsForSwitch[1];
+        $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
 
         $scope.steps = [
             {
@@ -29,6 +29,7 @@ angular.module('caziWeb')
         $scope.getAvpzList = function () {
             restFullApi.sendPost('getAvpzList', $scope.tokenObj)
                 .then(function(avpzList){
+                    console.log(avpzList);
                     avpzList != undefined ? $scope.avpzList = avpzList.data : $scope.avpzList = null;
 
 

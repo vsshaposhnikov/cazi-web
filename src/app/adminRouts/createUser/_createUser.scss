@@ -79,16 +79,16 @@
   input{
     height: 37px;
     color: #515150;
-
-  }
-}
-.third-step{
-  .column{
-    margin: 0 auto;
-    .purple-btn{
-      display: block;
+    &+label{
+      margin: 10px 0;
     }
   }
+}
+.second-step{
+  min-width: 800px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .btn-line{
   text-align: center;

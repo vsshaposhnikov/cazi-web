@@ -20,9 +20,9 @@
             </div>
         </div>
         <div class="btn-line">
-            <button class="blue-btn" ng-click="cancel()" ng-if="counter === 0">Отмена</button>
+            <button class="blue-btn" ng-click="cancel()" ng-if="counter == 0">Отмена</button>
 
-            <button class="blue-btn" ng-click="prevStep()" ng-if="counter > 1 ">Назад</button>
+            <button class="blue-btn" ng-click="prevStep()" ng-if="counter >= 1 ">Назад</button>
             <button class="blue-btn" ng-click="nextStep()" ng-disabled="formData.$invalid" ng-if="counter !== stepsForSwitch.length-1" >Дальше</button>
             <button class="blue-btn" ng-click="createNewMerchantPoint()" ng-if="counter === stepsForSwitch.length-1">Сохранить</button>
         </div>

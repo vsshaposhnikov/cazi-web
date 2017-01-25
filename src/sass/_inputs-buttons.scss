@@ -53,3 +53,56 @@ input{
   &:-moz-placeholder           {color:#68b4e4;}/* Firefox 18- */
   &:-ms-input-placeholder      {color:#68b4e4;}
 }
+input[type=radio] {
+  display: none;
+}
+input[type=radio]+label{
+  margin: 0 0 0 30px;
+  position: relative;
+  line-height: 20px;
+  cursor: pointer;
+  font: 300 1.4em 'CenturyGothic-Regular';
+  display: inline-block;
+  color: #515150;;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    border: 1px solid #515150;
+    background: #fafafa;
+    width: 18px;
+    height: 18px;
+    left: -28px;
+    top: 0;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    box-sizing: border-box;
+  }
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    left: -27px;
+    top: 1px;
+    border: 2px solid #FFFFFF;
+    transition: all 200ms;
+    background-color: #68b4e4;
+    opacity: 0;
+    transition-delay: 100ms;
+  }
+}
+input[type=radio]+label:hover:before{
+  border: 1px solid #68b4e4;
+  background: #f3f3f3;
+}
+input[type=radio]:checked+label:before{
+  border:9px solid #68b4e4;
+}
+input[type=radio]:checked+label:after{
+  opacity: 1;
+}
