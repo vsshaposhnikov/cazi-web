@@ -1,4 +1,4 @@
 <div class="input-block" ng-repeat="item in avpzList">
     <input type="radio" id="{{$index+1}}" ng-model="avpz" value="{{item.id}}">
-    <label for="{{$index+1}}">{{item.title}}</label>
+    <label ng-click="chooseAvpz(item)" for="{{$index+1}}">{{item.title}}</label>
 </div>

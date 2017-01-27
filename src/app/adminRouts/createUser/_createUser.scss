@@ -38,16 +38,8 @@
     }
   }
 }
-.information{
-  font: 400 1.4em 'CenturyGothic-Regular';
-  color: #838383;
-  padding: 60px 0 30px 0;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 70%;
-}
 .title{
-  font: 400 1.6em 'CenturyGothic-Regular';
+  font: 400 1.6em 'CenturyGothic-Bold';
   color: #515150;
   margin: 25px 0;
   position: relative;
@@ -64,8 +56,7 @@
 }
 .first-step,
 .second-step,
-.third-step,
-.last-step{
+.third-step{
   h3{
     color: #515150;
     text-align: center;
@@ -89,6 +80,19 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+}
+.third-step{
+  span{
+    font-size: 1.4em;
+    display: block;
+    margin: 10px 20px;
+    span{
+      font: 300 1.1em 'CenturyGothic-Bold';
+      display: inline-block;
+      vertical-align: bottom;
+      margin: 0;
+    }
+  }
 }
 .btn-line{
   text-align: center;

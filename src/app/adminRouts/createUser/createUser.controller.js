@@ -23,65 +23,55 @@ angular.module('caziWeb')
             }
         ];
 
+
         $scope.tokenObj = {
             token: localStorageService.get('user').token
         };
         $scope.getAvpzList = function () {
             restFullApi.sendPost('getAvpzList', $scope.tokenObj)
                 .then(function(avpzList){
-                    console.log(avpzList);
                     avpzList != undefined ? $scope.avpzList = avpzList.data : $scope.avpzList = null;
-
-
-                    Notification.success({message: 'Первый шаг успешно выполнен!'});
-
                 })
         };
         $scope.getAvpzList();
 
-        $scope.prevStep = function () {
-            $scope.counter--;
-            $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
-        };
+
+        $scope.newUserData = {};
+        $scope.newUserData.avpzArray = [];
+        $scope.avpzListForShow = [];
 
 
-        $scope.cancel = function () {
-            $state.go('adminDashboard');
+        $scope.chooseAvpz = function (avpzId) {
+            $scope.avpzListForShow.push(avpzId);
+            $scope.newUserData.avpzArray.push(avpzId.id);
         };
 
-        $scope.newUserData = {
-        };
-        $scope.createFirstStep = function () {
+        $scope.createNewUser = function () {
             $scope.newUserData.token = localStorageService.get('user').token;
             $scope.newUserData.role = 'user';
             $scope.newUserData.userInfo.creator =   localStorageService.get('user').userInfo.firstName
-                                                    +' '+
-                                                    localStorageService.get('user').userInfo.lastName;
-            //console.log($scope.newUserData);
-
-
+                +' '+
+                localStorageService.get('user').userInfo.lastName;
             restFullApi.sendPost('createOrUpdateUser', $scope.newUserData)
                 .then(function(createdMerchantPointInfo){
                     console.log(createdMerchantPointInfo);
-
-                        Notification.success({message: 'Первый шаг успешно выполнен!'});
-
+                    $state.go('usersList');
+                    Notification.success({message: 'Вітаю, нового користувача створено!'});
                 })
         };
 
-
+        $scope.prevStep = function () {
+            $scope.counter--;
+            $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
+                $scope.newUserData.avpzArray = [];
+                $scope.avpzListForShow = [];
+        };
+        $scope.cancel = function () {
+            $state.go('usersList');
+        };
         $scope.nextStep = function () {
             $scope.counter++;
             $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
-            if($scope.counter == $scope.stepsForSwitch.length-2){
-                //$scope.createFirstStep();
-            }
-            if($scope.counter == $scope.stepsForSwitch.length-1){
-                Notification.success({message: 'Второй шаг успешно выполнен'});
-            }
-            if($scope.counter == $scope.stepsForSwitch.length-1){
-                Notification.success({message: 'Третий шаг успешно выполнен'});
-            }
         };
 
 
