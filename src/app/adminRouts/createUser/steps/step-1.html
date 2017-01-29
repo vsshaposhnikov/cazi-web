@@ -29,13 +29,13 @@
             <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
         </div>
         <span>email користувача</span>
-        <input type="text" name="email" ng-model="newUserData.email" ng-pattern="validationPatterns.emailCheck" required>
+        <input type="text" name="email" ng-model="newUserData.userInfo.email" ng-pattern="validationPatterns.emailCheck" required>
         <div ng-messages="formData.email.$error" role="alert" ng-if="formData.email.$dirty">
             <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
             <div class="message" ng-message="pattern">Введіть коректний email</div>
         </div>
         <span>логін користувача</span>
-        <input type="text" name="login" ng-model="newUserData.login" required>
+        <input type="text" name="login" ng-model="newUserData.userInfo.login" required>
         <div ng-messages="formData.login.$error" role="alert" ng-if="formData.login.$dirty">
             <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
         </div>

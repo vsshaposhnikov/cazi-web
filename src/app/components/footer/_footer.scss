@@ -32,16 +32,16 @@ footer{
         }
       }
     }
-    .contacts-side{
-      .contacts-block{
-        display: block;
-        margin: 25px 0;
-        p,a{
-          margin: 5px 0;
-          letter-spacing: 1px;
-          font: 300 1.4em 'CenturyGothic-Bold';
-        }
-      }
+  }
+}
+.contacts-side{
+  .contacts-block{
+    display: block;
+    margin: 25px 0;
+    p,a{
+      margin: 5px 0;
+      letter-spacing: 1px;
+      font: 300 1.4em 'CenturyGothic-Bold';
     }
   }
 }

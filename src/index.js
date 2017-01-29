@@ -6,6 +6,7 @@ angular
         var user = localStorageService.get('user');
 
         if (user) {
+
             $rootScope.user = localStorageService.get('user');
             if ($rootScope.user.role === 'user') {
                 if ($location.$$path == "/") {

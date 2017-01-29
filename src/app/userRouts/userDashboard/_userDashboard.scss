@@ -4,11 +4,34 @@
   margin: 7% 0;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
+  transition: all .3s;
+  i{
+    color: #ffffff;
+    font-size: 9.0em;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 20% 0 10% 0;
+  }
+  p{
+    font: 300 1.8em 'CenturyGothic-Regular';
+    color: #ffffff;
+    text-align: center;
+  }
   &.blue{
     background-color: #68b4e4;
+    &:hover{
+      transition: all .3s;
+      background-color: #5c9fc9;
+    }
   }
   &.yellow{
     margin-left: 6%;
+    transition: all .3s;
     background-color: #eaad44;
+    &:hover{
+      background-color: #d69f3e;
+    }
   }
 }

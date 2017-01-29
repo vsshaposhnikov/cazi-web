@@ -6,7 +6,7 @@
         </div>
         <div class="account-block fr" ng-if="user">
             <div class="account-drop-down" drop-down>
-                <p>{{user.userInfo.firstName}} {{user.userInfo.lastName}}</p>
+                <p>{{user.firstName}} {{user.lastName}}</p>
                 <ul>
                     <li><a ui-sref="profile">Налаштування профілю</a></li>
                     <li><a ng-click="logout()">Вийти</a></li>
@@ -15,4 +15,3 @@
         </div>
     </div>
 </div>
-<preloader ng-show="isLoading"></preloader>

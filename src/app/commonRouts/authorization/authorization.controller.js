@@ -8,8 +8,9 @@ angular.module('caziWeb')
             if(form.$valid){
                 restFullApi.sendPost('login', $scope.userData)
                     .then(function(user){
-                        console.log(user);
-                            if(user != undefined){
+                        //console.log(user);
+                        $rootScope.isLoading = false;
+                        if(user != undefined){
                                 $rootScope.user = user.data;
                                 if($rootScope.user.role === 'admin') {
                                     localStorageService.set('user', $rootScope.user);
@@ -19,10 +20,6 @@ angular.module('caziWeb')
                                     localStorageService.set('user', $rootScope.user);
                                     $state.go('userDashboard');
                                 }
-/*                                else {
-                                    $state.go('authorization');
-                                    Notification.error({message: 'Не достаточно прав доступа!', title: 'Ошибка авторизации'});
-                                }*/
                             }
                     })
             }

@@ -24,11 +24,13 @@ angular.module('caziWeb')
         ];
 
 
-        $scope.tokenObj = {
-            token: localStorageService.get('user').token
+        $scope.userData = {
+            userInfo: {
+                token: localStorageService.get('user').token
+            }
         };
         $scope.getAvpzList = function () {
-            restFullApi.sendPost('getAvpzList', $scope.tokenObj)
+            restFullApi.sendPost('getAvpzList', $scope.userData)
                 .then(function(avpzList){
                     avpzList != undefined ? $scope.avpzList = avpzList.data : $scope.avpzList = null;
                 })
@@ -36,25 +38,29 @@ angular.module('caziWeb')
         $scope.getAvpzList();
 
 
-        $scope.newUserData = {};
-        $scope.newUserData.avpzArray = [];
+        $scope.newUserData = {
+            userInfo: {
+                avpzArray: []
+            }
+        };
         $scope.avpzListForShow = [];
 
 
         $scope.chooseAvpz = function (avpzId) {
             $scope.avpzListForShow.push(avpzId);
-            $scope.newUserData.avpzArray.push(avpzId.id);
+            $scope.newUserData.userInfo.avpzArray.push(avpzId.id);
         };
 
         $scope.createNewUser = function () {
-            $scope.newUserData.token = localStorageService.get('user').token;
-            $scope.newUserData.role = 'user';
-            $scope.newUserData.userInfo.creator =   localStorageService.get('user').userInfo.firstName
+            $scope.newUserData.userInfo.token = localStorageService.get('user').token;
+            $scope.newUserData.userInfo.creator =   localStorageService.get('user').firstName
                 +' '+
-                localStorageService.get('user').userInfo.lastName;
+                localStorageService.get('user').lastName;
+            console.log($scope.newUserData);
+
             restFullApi.sendPost('createOrUpdateUser', $scope.newUserData)
-                .then(function(createdMerchantPointInfo){
-                    console.log(createdMerchantPointInfo);
+                .then(function(createdUser){
+                    console.log(createdUser);
                     $state.go('usersList');
                     Notification.success({message: 'Вітаю, нового користувача створено!'});
                 })

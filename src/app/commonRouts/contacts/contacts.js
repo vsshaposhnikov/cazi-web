@@ -5,6 +5,5 @@ angular
             .state('contacts', {
                 url: '/contacts',
                 templateUrl: 'app/commonRouts/contacts/contacts.html',
-                controller: 'contactsController'
             });
     });

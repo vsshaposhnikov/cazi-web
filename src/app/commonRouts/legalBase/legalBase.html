@@ -1,5 +1,7 @@
-<div class="view-wrap">
+<div class="view-wrap legalBase">
     <div class="center white">
-        <h1>Legal base</h1>
+        <div class="legalLine" ng-repeat="item in legalBase">
+            <a href="{{ item.downloadLink }}">{{ $index+1 }}. {{ item.title }}<span>{{ item.date }}</span><i class="fa fa-download"></i></a>
+        </div>
     </div>
 </div>

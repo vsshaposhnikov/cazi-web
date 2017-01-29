@@ -3,6 +3,9 @@
         "sass/inputs-buttons",
         "sass/datepicker",
         "app/commonRouts/authorization/authorization",
+        "app/commonRouts/contacts/contacts",
+        "app/commonRouts/questionsAnswers/questionsAnswers",
+        "app/commonRouts/legalBase/legalBase",
         "app/userRouts/userDashboard/userDashboard",
         "app/adminRouts/usersList/usersList",
         "app/adminRouts/userNotifications/userNotifications",
@@ -10,6 +13,7 @@
         "app/modalTemplates/modals",
         "app/components/header/header",
         "app/components/footer/footer",
+        "app/components/preloader/preloader",
         "app/components/navigation/navigation";
 .center{
   max-width: 1120px;

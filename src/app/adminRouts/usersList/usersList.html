@@ -10,6 +10,7 @@
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
             </div>
         </div>
+
         <div class="table">
             <div class="row header">
                 <div class="cell">
@@ -18,7 +19,7 @@
                 <div class="cell">
                     ПІБ
                 </div>
-                <div class="cell organization">
+                <div class="cell">
                     Організація
                 </div>
                 <div class="cell">
@@ -34,17 +35,20 @@
                     Остання активність
                 </div>
                 <div class="cell">
+                    Створив
+                </div>
+                <div class="cell">
                     Активність
                 </div>
             </div>
             <div class="row" ng-repeat="item in users">
                 <div class="cell">
-                    {{$index + 1}}
+                    {{$index + 1}}.
                 </div>
                 <div class="cell">
-                    {{::item.firstName}} {{::item.lastName}}
+                    <p ng-click="updateUser(item)">{{::item.firstName}} {{::item.lastName}}</p>
                 </div>
-                <div class="cell organization">
+                <div class="cell">
                     {{::item.organization}}
                 </div>
                 <div class="cell">
@@ -57,7 +61,10 @@
                     {{::item.email}}
                 </div>
                 <div class="cell lastVisit">
-                    {{::item.lastVisit}}
+                    {{:: item.lastVisit == null ? 'Ні разу входили до системи' : item.lastVisit}}
+                </div>
+                <div class="cell">
+                    {{::item.creator}}
                 </div>
                 <div class="cell text-center">
                     <i class="fa fa-check-circle isActive" ng-if="item.isActive == 1"></i>
@@ -67,3 +74,4 @@
         </div>
     </div>
 </div>
+<preloader ng-show="isLoading"></preloader>

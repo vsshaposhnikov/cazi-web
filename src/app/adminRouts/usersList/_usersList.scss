@@ -61,6 +61,15 @@
       &.text-center{
         text-align: center;
       }
+      p{
+        font: 300 1.0em'CenturyGothic-Regular';
+        transition: all .3s;
+        &:hover{
+          color: #eaad44;
+          cursor: pointer;
+          transition: all .3s;
+        }
+      }
       i{
         color: #eaad44;
         font-size: 1.6em;
@@ -95,5 +104,32 @@
 @media screen and (max-width: 580px) {
   .table {
     display: block;
+  }
+}
+.modal-content{
+  h2{
+    margin: 0 0 25px 0;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all .3s;
+    &:after{
+      background-color: #68b4e4;
+      top: 30px;
+    }
+    &:hover{
+      color: #68b4e4;
+    }
+  }
+  .updateUser{
+    span{
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 5px;
+      font: 300 1.2em 'CenturyGothic-Regular';
+    }
+    input{
+      height: 35px;
+    }
   }
 }

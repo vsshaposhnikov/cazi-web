@@ -8,7 +8,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: rgba(28, 28, 71, .5);
+  background-color: rgba(76, 76, 74, 0.5);
   &:after{
     content: '';
     width: 0;
@@ -24,7 +24,7 @@
   }
 }
 
-$primary-color: rgba(28, 28, 71, 1) !default;
+$primary-color: rgb(98, 98, 96) !default;
 $ball-size: 10px !default;
 $margin: 10px !default;
 $line-height: 35px !default;
