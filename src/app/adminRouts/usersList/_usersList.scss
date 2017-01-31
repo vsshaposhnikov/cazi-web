@@ -132,4 +132,18 @@
       height: 35px;
     }
   }
+  .avpz{
+    .input-block{
+      padding: 5px 0;
+    }
+    .userHave{
+      width: 50%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .userNotHave{
+      width: 49%;
+      display: inline-block;
+    }
+  }
 }

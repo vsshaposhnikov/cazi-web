@@ -16,14 +16,31 @@ angular.module('caziWeb')
                 id: user.id
             }
         };
-        $scope.getAvpzListByUser = function () {
+        $scope.avpzList = [];
+        function getAvpzList () {
+            restFullApi.sendPost('getAvpzList', avpzData)
+                .then(function(avpzList){
+                    return avpzList != undefined ? avpzList.data : null;
+                }).then(function(avpzList){
+                    console.log(avpzList)
+                })
+        }
+        getAvpzList();
+        console.log($scope.avpzList)
+
+
+        $scope.avpzListByUser = [];
+        function getAvpzListByUser () {
             restFullApi.sendPost('getAvpzListByUser', avpzData)
                 .then(function(avpzListByUser){
-                    console.log(avpzListByUser.data);
+                    //console.log(avpzListByUser.data);
                     avpzListByUser != undefined ? $scope.avpzListByUser = avpzListByUser.data : $scope.avpzListByUser = null;
+                    console.log($scope.avpzListByUser);
+
                 })
-        };
-        $scope.getAvpzListByUser();
+        }
+        getAvpzListByUser();
+
 
 
         $scope.updateUser = function () {
