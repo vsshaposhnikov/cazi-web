@@ -44,15 +44,13 @@
         </div >
         <div class="avpz" ng-switch-when="avpz">
             <div class="userHave">
-                <div class="input-block" ng-repeat="item in avpzListByUser">
-                    <input type="radio" id="{{$index+1}}" checked="checked" ng-model="avpz" value="{{item.id}}">
-                    <label ng-click="chooseAvpz(item)" for="{{$index+1}}">{{item.title}}</label>
+                <div class="input-block" ng-repeat="item in avpzList | filter : {'isUsed' : true} track by $index">
+                    <p ng-click="item.isUsed = !item.isUsed;">{{item.title}}</p>
                 </div>
             </div>
             <div class="userNotHave">
-                <div class="input-block" ng-repeat="item in avpzList">
-                    <input type="radio" id="{{$index}}" ng-model="avpz" value="{{item.id}}">
-                    <label ng-click="chooseAvpz(item)" for="{{$index+1}}">{{item.title}}</label>
+                <div class="input-block" ng-repeat="item in avpzList | filter : {'isUsed' : false} track by $index">
+                    <p ng-click="item.isUsed = !item.isUsed;">{{item.title}}</p>
                 </div>
             </div>
         </div>

@@ -1,11 +1,12 @@
 'use strict';
 angular.module('caziWeb')
-    .controller('updateUserController', function($scope, restFullApi, localStorageService, user, $state){
-        $scope.isLoading = true;
+    .controller('updateUserController', function($scope, restFullApi, localStorageService, user, $state, $q){
+        //$scope.isLoading = true;
+
         $scope.userData = {
             userInfo: user
         };
-        $scope.userData.userInfo.id = user.id;
+
         $scope.userData.userInfo.token = localStorageService.get('user').token;
 
         $scope.updateUserSwitch = 'userInfo';
@@ -16,40 +17,30 @@ angular.module('caziWeb')
                 id: user.id
             }
         };
-        $scope.avpzList = [];
-        function getAvpzList () {
-            restFullApi.sendPost('getAvpzList', avpzData)
-                .then(function(avpzList){
-                    return avpzList != undefined ? avpzList.data : null;
-                }).then(function(avpzList){
-                    console.log(avpzList)
-                })
-        }
-        getAvpzList();
-        console.log($scope.avpzList)
 
-
-        $scope.avpzListByUser = [];
-        function getAvpzListByUser () {
-            restFullApi.sendPost('getAvpzListByUser', avpzData)
-                .then(function(avpzListByUser){
-                    //console.log(avpzListByUser.data);
-                    avpzListByUser != undefined ? $scope.avpzListByUser = avpzListByUser.data : $scope.avpzListByUser = null;
-                    console.log($scope.avpzListByUser);
-
-                })
-        }
-        getAvpzListByUser();
-
+        $q.all([restFullApi.sendPost('getAvpzList', avpzData), restFullApi.sendPost('getAvpzListByUser', avpzData)]).then(function(data){
+            $scope.avpzList = data[0] != undefined ? data[0].data : [];
+            var avpzListByUser = data[1] != undefined ? data[1].data : [];
+            $scope.avpzList.map(function(avp){
+                avp.isUsed = false;
+            });
+            avpzListByUser.map(function(avp){
+                var index = _.findIndex($scope.avpzList, { 'id': avp.avpzId});
+                if(index > -1){
+                    $scope.avpzList[index].isUsed = true;
+                }
+            });
+        });
 
 
         $scope.updateUser = function () {
+            $scope.userData.userInfo.avpz = _.filter($scope.avpzList, {'isUsed' : true}).map(function(avp){return avp.id});
             console.log($scope.userData);
-            restFullApi.sendPost('createOrUpdateUser', $scope.userData)
+            /*restFullApi.sendPost('createOrUpdateUser', $scope.userData)
                 .then(function(updatedUser){
                     //updatedUser != undefined ? $scope.users = users.data : $scope.users = null;
                     $scope.isLoading = false;
                     $state.reload();
-                })
+                })*/
         };
     });
