@@ -113,6 +113,8 @@
     vertical-align: middle;
     cursor: pointer;
     transition: all .3s;
+    text-transform: uppercase;
+    font: 300 1.8em 'CenturyGothic-Regular';
     &:after{
       background-color: #68b4e4;
       top: 30px;
@@ -134,7 +136,22 @@
   }
   .avpz{
     .input-block{
-      padding: 5px 0;
+      span{
+        display: block;
+        padding: 10px 10px;
+        cursor: pointer;
+        text-transform: none;
+        transition: all .3s;
+        font: 300 1.4em 'CenturyGothic-Regular';
+      }
+      &:hover{
+        span{
+          padding-left: 25px;
+          color: #ffffff;
+          transition: all .3s;
+          background-color: #68b4e4;
+        }
+      }
     }
     .userHave{
       width: 50%;

@@ -2,10 +2,7 @@
 angular.module('caziWeb')
     .controller('legalBaseController', function($scope, localStorageService, restFullApi){
         $scope.getLegalBase = function () {
-            $scope.tokenObj = {
-                token: localStorageService.get('user').token
-            };
-            restFullApi.sendPost('getLegalBase', $scope.tokenObj)
+            restFullApi.sendPost('getLegalBase', '')
                 .then(function(legalBase){
                     //console.log(questionsAnswers);
                     $scope.legalBase = legalBase.data;

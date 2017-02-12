@@ -23,14 +23,11 @@ angular.module('caziWeb')
             }
         ];
 
-
-        $scope.userData = {
-            userInfo: {
-                token: localStorageService.get('user').token
-            }
+        var userData = {
+            token: localStorageService.get('user').token
         };
         $scope.getAvpzList = function () {
-            restFullApi.sendPost('getAvpzList', $scope.userData)
+            restFullApi.sendPost('getAvpzList', userData)
                 .then(function(avpzList){
                     avpzList != undefined ? $scope.avpzList = avpzList.data : $scope.avpzList = null;
                 })
@@ -52,15 +49,15 @@ angular.module('caziWeb')
         };
 
         $scope.createNewUser = function () {
-            $scope.newUserData.userInfo.token = localStorageService.get('user').token;
+            $scope.newUserData.token = localStorageService.get('user').token;
             $scope.newUserData.userInfo.creator =   localStorageService.get('user').firstName
                 +' '+
                 localStorageService.get('user').lastName;
-            console.log($scope.newUserData);
+            //console.log($scope.newUserData);
 
             restFullApi.sendPost('createOrUpdateUser', $scope.newUserData)
                 .then(function(createdUser){
-                    console.log(createdUser);
+                    //console.log(createdUser);
                     $state.go('usersList');
                     Notification.success({message: 'Вітаю, нового користувача створено!'});
                 })

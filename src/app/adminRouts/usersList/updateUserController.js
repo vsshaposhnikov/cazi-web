@@ -1,19 +1,19 @@
 'use strict';
 angular.module('caziWeb')
-    .controller('updateUserController', function($scope, restFullApi, localStorageService, user, $state, $q){
+    .controller('updateUserController', function($scope, restFullApi, localStorageService, user, $state, $q, Notification){
         //$scope.isLoading = true;
 
         $scope.userData = {
+            token: localStorageService.get('user').token,
             userInfo: user
         };
 
-        $scope.userData.userInfo.token = localStorageService.get('user').token;
 
         $scope.updateUserSwitch = 'userInfo';
 
         var avpzData = {
+            token: localStorageService.get('user').token,
             userInfo: {
-                token: localStorageService.get('user').token,
                 id: user.id
             }
         };
@@ -34,13 +34,14 @@ angular.module('caziWeb')
 
 
         $scope.updateUser = function () {
-            $scope.userData.userInfo.avpz = _.filter($scope.avpzList, {'isUsed' : true}).map(function(avp){return avp.id});
-            console.log($scope.userData);
-            /*restFullApi.sendPost('createOrUpdateUser', $scope.userData)
+            $scope.userData.userInfo.avpzArray = _.filter($scope.avpzList, {'isUsed' : true}).map(function(avp){return avp.id});
+            //console.log($scope.userData);
+            restFullApi.sendPost('createOrUpdateUser', $scope.userData)
                 .then(function(updatedUser){
-                    //updatedUser != undefined ? $scope.users = users.data : $scope.users = null;
-                    $scope.isLoading = false;
+                    //console.log(updatedUser);
+                    Notification.success({message: updatedUser.data, title: 'Вітаю, користувача  оновлено!'});
+                    $scope.users = updatedUser != undefined ? updatedUser.data : null;
                     $state.reload();
-                })*/
+                })
         };
     });

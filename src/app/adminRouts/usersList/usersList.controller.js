@@ -3,14 +3,13 @@ angular.module('caziWeb')
     .controller('usersListController', function($scope, restFullApi, localStorageService, ngDialog){
         $scope.isLoading = true;
         $scope.userData = {
-            userInfo: {
-                token: localStorageService.get('user').token
-            }
+            token: localStorageService.get('user').token,
+            userInfo: {}
         };
         $scope.loadUsers = function () {
             restFullApi.sendPost('getAllUsers', $scope.userData)
                 .then(function(users){
-                    console.log(users);
+                    //console.log(users);
                     users != undefined ? $scope.users = users.data : $scope.users = null;
                     $scope.isLoading = false;
                 })
