@@ -1,5 +1,29 @@
-<div class="view-wrap">
+<div class="view-wrap profile">
     <div class="center white">
-        <h1>Profile</h1>
+        <div class="passwordChangeBlock">
+            <p class="title">Змініть пароль свого облікового запису</p>
+            <form name="formDataPassword" novalidate>
+                <span>Введіть діючий пароль для вашого профілю:</span>
+                <input type="text" name="oldPassword" ng-model="changePasswordData.userInfo.oldPassword" required>
+                <div ng-messages="formDataPassword.oldPassword.$error" role="alert" ng-if="formDataPassword.oldPassword.$dirty">
+                    <div class="message" ng-message="required">Поле існуючий пароль - не може бути порожнім</div>
+                </div>
+                <span>Введіть новий пароль для вашого профілю:</span>
+                <input type="text" name="newPassword" ng-model="changePasswordData.userInfo.newPassword" required>
+                <div ng-messages="formDataPassword.newPassword.$error" role="alert" ng-if="formDataPassword.newPassword.$dirty">
+                    <div class="message" ng-message="required">Поле новый пароль - не може бути порожнім</div>
+                </div>
+                <span>Повторіть:</span>
+                <input type="text" name="confirmPassword" ng-model="confirmPassword" ng-pattern="changePasswordData.userInfo.newPassword" required>
+                <div ng-messages="formDataPassword.confirmPassword.$error" role="alert" ng-if="formDataPassword.confirmPassword.$dirty">
+                    <div class="message" ng-message="required">Поле повтор нового паролю - не може бути порожнім</div>
+                    <div class="message" ng-message="pattern">Паролі не співпадають</div>
+                </div>
+                <div class="btn-line">
+                    <button class="blue-btn" ng-click="prevState()">Повернутись</button>
+                    <button class="blue-btn" ng-click="changePassword()" ng-disabled="formDataPassword.$invalid">Зберегти</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

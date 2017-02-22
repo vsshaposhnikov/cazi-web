@@ -1,6 +1,6 @@
 <div class="auth-wrap">
     <div class="auth-block">
-        <p ng-click="userData.login='testAdmin';userData.password='testAdmin';">Виконайте вхід</p>
+        <p ng-dblclick="userData.login='testUser';userData.password='testUser';" ng-click="userData.login='testAdmin';userData.password='testAdmin';">Виконайте вхід</p>
         <form name="formData" novalidate ng-submit="login(formData)">
             <div class="input-block">
                 <input type="text" name="login" ng-model="userData.login" placeholder="Логін" required>

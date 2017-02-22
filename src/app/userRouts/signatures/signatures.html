@@ -1,0 +1,35 @@
+<div class="view-wrap signatures">
+    <div class="center white">
+        <div class="table">
+            <div class="row header">
+                <div class="cell">
+                    №
+                </div>
+                <div class="cell">
+                    Назва антивірусного програмного засобу
+                </div>
+                <div class="cell centred">
+                    Завантажте сигнатури
+                </div>
+                <div class="cell centred">
+                    Завантажте інсталяційни файл
+                </div>
+            </div>
+            <div class="row" ng-repeat="avpz in avpzList">
+                <div class="cell">
+                    {{$index + 1}}.
+                </div>
+                <div class="cell">
+                    {{::avpz.title}}
+                </div>
+                <div class="cell">
+                    <a href="{{::avpz.downloadLink}}"><i class="fa fa-download" aria-hidden="true"></i></a>
+                </div>
+                <div class="cell">
+                    <a href="{{::avpz.downloadLinkExe}}"><i class="fa fa-download" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,7 +1,12 @@
+.view-wrap{
+  &.userDashboard{
+    text-align: center;
+  }
+}
 .actions{
   width: 46.8%;
   height: 340px;
-  margin: 7% 0;
+  margin: 7% auto;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
@@ -27,7 +32,6 @@
     }
   }
   &.yellow{
-    margin-left: 6%;
     transition: all .3s;
     background-color: #eaad44;
     &:hover{

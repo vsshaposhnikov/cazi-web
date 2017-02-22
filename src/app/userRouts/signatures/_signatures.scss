@@ -1,0 +1,22 @@
+.view-wrap{
+  &.signatures{
+    .table{
+      padding: 5% 0;
+      .centred{
+        text-align: center;
+      }
+      a{
+        text-align: center;
+        display: block;
+        i{
+          font-size: 2.2em;
+          color: #68b4e4;
+          &:hover{
+            transition: all .3s;
+            color: #5c9fc9;
+          }
+        }
+      }
+    }
+  }
+}

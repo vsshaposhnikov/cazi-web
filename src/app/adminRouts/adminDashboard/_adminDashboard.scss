@@ -1,42 +1,9 @@
-.auth-wrap{
-  width: 100%;
-  min-height: 550px;
-  padding-top: 7%;
-  text-align: center;
-  background: url('assets/images/auth-bg.jpg') no-repeat center;
-  background-size: cover;
-  .auth-block{
-    width: 390px;
-    min-height: 380px;
-    padding: 25px 55px;
-    background-color: rgba(255, 255, 255, 0.7);
-    display: block;
-    margin: 0 auto;
-    p{
-      font: 300 3.0em 'CenturyGothic-Bold';
-      color: #515150;
-      text-align: center;
-      padding-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .input-block{
-      text-align: left;
-      margin: 25px 0;
-      input{
-        margin: 25px 0;
+.view-wrap{
+  &.adminDashboard{
+    .actions{
+      &.blue{
+        margin-right: 6.1%;
       }
-      a{
-        color: #1a76bc;
-        font: 300 1.6em 'CenturyGothic-Regular';
-        border-bottom: 1px dashed #1a76bc;
-        display: inline;
-      }
-    }
-    .blue-btn{
-      width: 100%;
-      display: block;
-      padding: 12px 25px;
     }
   }
 }
