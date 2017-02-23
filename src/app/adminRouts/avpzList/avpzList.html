@@ -1,6 +1,40 @@
-<div class="view-wrap">
+<div class="view-wrap avpzList">
     <div class="center white">
-        <input type="file" nv-file-select="" uploader="uploader" />
-        <p ng-click="uploader.uploadAll()">send</p>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">
+                    №
+                </div>
+                <div class="cell">
+                    Назва антивірусного програмного засобу
+                </div>
+                <div class="cell text-center">
+                    Завантажте сигнатури
+                </div>
+                <div class="cell text-center">
+                    Завантажте інсталяційни файл
+                </div>
+                <div class="cell text-center">
+                    Видалити
+                </div>
+            </div>
+            <div class="row" ng-repeat="avpz in avpzList">
+                <div class="cell">
+                    {{$index + 1}}.
+                </div>
+                <div class="cell">
+                    <p ng-click="openEditModal(avpz)">{{::avpz.title}}</p>
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-upload" aria-hidden="true" ng-click="openSignatureModal(avpz)"></i>
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-upload" aria-hidden="true" ng-click="openInstallModal(avpz)"></i>
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-trash del" aria-hidden="true" ng-click="openDeleteModal(avpz)"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

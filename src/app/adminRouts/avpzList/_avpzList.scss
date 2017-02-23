@@ -1,0 +1,26 @@
+.view-wrap{
+  &.avpzList{
+    .table{
+      padding: 5% 0;
+
+      p{
+        display: inline-block;
+      }
+      i{
+        font-size: 1.8em;
+        color: #68b4e4;
+        &.del{
+          color: #eaad44;
+          &:hover{
+            transition: all .3s;
+            color: #a3792f;
+          }
+        }
+        &:hover{
+          transition: all .3s;
+          color: #5c9fc9;
+        }
+      }
+    }
+  }
+}
