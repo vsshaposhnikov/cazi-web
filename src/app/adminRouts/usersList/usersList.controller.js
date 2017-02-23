@@ -1,20 +1,28 @@
 'use strict';
-angular.module('caziWeb')
+angular
+    .module('caziWeb')
     .controller('usersListController', function($scope, restFullApi, localStorageService, ngDialog){
         $scope.isLoading = true;
         $scope.userData = {
             token: localStorageService.get('user').token,
-            userInfo: {}
+            userInfo: {
+                searchWord: null
+            }
         };
-        $scope.loadUsers = function () {
-            restFullApi.sendPost('getAllUsers', $scope.userData)
+        $scope.findUsers = function () {
+            restFullApi.sendPost('findUsers', $scope.userData)
                 .then(function(users){
-                    //console.log(users);
+                    //console.log(users.data);
                     users != undefined ? $scope.users = users.data : $scope.users = null;
                     $scope.isLoading = false;
                 })
         };
-        $scope.loadUsers();
+        $scope.$watch('userData.userInfo.searchWord', function() {
+            $scope.findUsers();
+            //console.log($scope.userData);
+
+        });
+
         $scope.updateUser = function (user) {
             ngDialog.open({
                 template: 'app/modalTemplates/updateUser.html',
@@ -29,4 +37,5 @@ angular.module('caziWeb')
                 }
             });
         };
+
     });
