@@ -10,9 +10,9 @@ angular.module('caziWeb')
             $scope.userData.userInfo.creator = localStorageService.get('user').firstName +' '+ localStorageService.get('user').lastName;
                 restFullApi.sendPost('createOrUpdateUser', $scope.userData)
                 .then(function(admin){
-                    console.log(admin);
-                    //Notification.success({message: 'Продовжуйте роботу з системою', title: 'Нового адміністратора системи успішно додано'});
-                    //$state.reload();
+                    //console.log(admin);
+                    Notification.success({message: 'Продовжуйте роботу з системою', title: 'Нового адміністратора системи успішно додано'});
+                    $state.reload();
                 });
         };
     });
