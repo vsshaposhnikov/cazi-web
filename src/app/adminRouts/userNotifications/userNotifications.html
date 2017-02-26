@@ -1,9 +1,10 @@
 <div class="view-wrap userNotifications">
     <div class="center white">
         <div class="search-bar clear-fix">
-            <div class="blue-btn fr">Нове повідомлення</div>
+            <h2 class="fl">Модуль публікації термінових повідомлень</h2>
+            <div class="blue-btn fr" ng-click="openCreateModal()">Нове повідомлення</div>
         </div>
-        <div class="table">
+        <div class="table" ng-if="showTable">
             <div class="row header">
                 <div class="cell">
                     №
@@ -20,28 +21,39 @@
                 <div class="cell">
                     Створив
                 </div>
-                <div class="cell">
-                    Публікація
-                </div>
-            </div>
-            <div class="row" ng-repeat="item in users">
-                <div class="cell">
-                    {{$index + 1}}
-                </div>
-                <div class="cell">
-                    {{::item.firstName}} {{::item.lastName}}
-                </div>
-                <div class="cell">
-                    {{::item.organization}}
-                </div>
-                <div class="cell">
-                    {{::item.phone}}
+                <div class="cell text-center">
+                    Статус публікацї
                 </div>
                 <div class="cell text-center">
-                    <i class="fa fa-check-circle isActive" ng-if="item.isActive == 1"></i>
-                    <i class="fa fa-times-circle red isActive" ng-if="item.isActive == 0 || item.isActive == null"></i>
+                    Видалити
+                </div>
+            </div>
+            <div class="row" ng-repeat="item in messages">
+                <div class="cell">
+                    {{$index + 1}}.
+                </div>
+                <div class="cell">
+                    <p ng-click="openEditModal(item)">{{::item.title}}</p>
+                </div>
+                <div class="cell">
+                    {{::item.content}}
+                </div>
+                <div class="cell">
+                    {{::item.createDate}}
+                </div>
+                <div class="cell">
+                    {{::item.creator}}
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-check-circle" ng-if="item.isPublished == 1"></i>
+                    <i class="fa fa-times-circle red" ng-if="item.isPublished == 0" ng-click="openPublishModal(item)"></i>
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-trash" ng-click="openDeleteModal(item)"></i>
                 </div>
             </div>
         </div>
+        <i class="fa fa-commenting emptyArr" aria-hidden="true" ng-if="messages.length == 0"></i>
     </div>
 </div>
+<preloader ng-show="isLoading"></preloader>

@@ -106,3 +106,18 @@ input[type=radio]:checked+label:before{
 input[type=radio]:checked+label:after{
   opacity: 1;
 }
+textarea{
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  font: 300 1.6em 'CenturyGothic-Regular';
+  color: #68b4e4;
+  padding: 11px 10px;
+  border: 1px solid #68b4e4;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  width: 100%;
+  margin: 0 0 15px 0;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.6);
+}

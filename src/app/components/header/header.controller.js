@@ -1,5 +1,5 @@
 angular.module('caziWeb')
-  .controller('headerController', function($scope, $state, localStorageService, restFullApi, $rootScope) {
+  .controller('headerController', function($scope, $state, localStorageService, restFullApi, $rootScope, ngDialog) {
       $scope.logout = function () {
           restFullApi.sendPost('logout', $rootScope.user)
               .then(function(exit){
@@ -9,4 +9,13 @@ angular.module('caziWeb')
                   $state.go('authorization');
               })
       };
+      $scope.openCreateAdminModal = function () {
+          ngDialog.open({
+              template: 'app/modalTemplates/createAdmin.html',
+              showClose: false,
+              controller: 'createAdminModalController',
+              width: '40%',
+              closeByNavigation: true
+          });
+      }
   });

@@ -1,0 +1,18 @@
+.view-wrap{
+  &.legalBaseContent{
+    .table{
+      .row{
+        .cell{
+          i{
+            &.upload{
+              color: #68b4e4;
+              &:hover{
+                color: #4d85a8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

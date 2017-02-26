@@ -61,14 +61,14 @@
                     {{::item.email}}
                 </div>
                 <div class="cell lastVisit">
-                    {{:: item.lastVisit == null ? 'Ні разу входили до системи' : item.lastVisit}}
+                    {{:: item.lastVisit == null ? 'Не входили до системи' : item.lastVisit}}
                 </div>
                 <div class="cell">
                     {{::item.creator}}
                 </div>
                 <div class="cell text-center">
                     <i class="fa fa-check-circle isActive" ng-if="item.isActive == 1"></i>
-                    <i class="fa fa-times-circle red isActive" ng-if="item.isActive == 0 || item.isActive == null"></i>
+                    <i class="fa fa-times-circle red isActive" ng-click="openActivateModal(item)" ng-if="item.isActive == 0 || item.isActive == null"></i>
                 </div>
             </div>
         </div>

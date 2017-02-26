@@ -1,5 +1,10 @@
 <div class="view-wrap avpzList">
     <div class="center white">
+        <div class="search-bar clear-fix">
+            <h2 class="fl">Мудуль керування антивірусними програмними засобами</h2>
+            <div class="blue-btn fr" ng-click="openStorageModal()">Управління сховищем</div>
+            <div class="blue-btn fr" ng-click="openCreateModal()">Нове АВПЗ</div>
+        </div>
         <div class="table">
             <div class="row header">
                 <div class="cell">
@@ -27,6 +32,7 @@
                 </div>
                 <div class="cell text-center">
                     <i class="fa fa-upload" aria-hidden="true" ng-click="openSignatureModal(avpz)"></i>
+                    <a href="{{avpz.downloadLink}}">Протестуйте завантажене</a>
                 </div>
                 <div class="cell text-center">
                     <i class="fa fa-upload" aria-hidden="true" ng-click="openInstallModal(avpz)"></i>
@@ -38,3 +44,4 @@
         </div>
     </div>
 </div>
+<preloader ng-show="isLoading"></preloader>

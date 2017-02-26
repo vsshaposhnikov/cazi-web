@@ -44,4 +44,19 @@ angular.module('caziWeb')
                     $state.reload();
                 })
         };
+
+        $scope.setActive = function () {
+            $scope.userData = {
+                token: localStorageService.get('user').token,
+                id: $scope.userData.userInfo.id
+            };
+            restFullApi.sendPost('setActive', $scope.userData)
+                .then(function(active){
+                    //console.log(active.data);
+                    Notification.success({message: active.data, title: 'Вітаю, користувача  оновлено!'});
+                    $state.reload();
+                    $scope.isLoading = false;
+                })
+        };
+
     });

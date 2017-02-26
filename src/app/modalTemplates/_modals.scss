@@ -8,12 +8,161 @@
       .modal-content{
         padding: 20px;
         p{
-          font: 300 1.6em 'CenturyGothic-Regular';
-          line-height: 24px;
-          margin: 15px 0;
+          &:not(.title){
+            font: 300 1.6em 'CenturyGothic-Regular';
+            line-height: 24px;
+            margin: 15px 0;
+          }
+        }
+        span{
+          margin: 5px 0;
+          display: inline-block;
+          font-size: 1.2em;
         }
         input{
           height: 37px;
+        }
+        &.questions{
+          textarea{
+            height: 150px;
+          }
+        }
+        &.urgentMsgUser{
+          text-align: center;
+          &+.modal-footer{
+            text-align: center;
+          }
+        }
+        &.urgentMsg{
+          span{
+            display: inline-block;
+            margin: 5px 0;
+            font-size: 1.2em;
+          }
+          textarea{
+            width: 100%;
+            height: 200px;
+          }
+        }
+        &.signaturesStorage{
+          min-height: 185px;
+          p{
+            i{
+              margin-right: 10px;
+              vertical-align: text-top;
+            }
+            &.file{
+              font-size: 1.4em;
+              i{
+                &:last-child{
+                  font-size: 1.6em;
+                  transition: all .3s;
+                  &:hover{
+                    color: #68b4e4;
+                    transition: all .3s;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+          .whenEmpty{
+            font-size: 8.5em;
+            color: #cfcfcf;
+            text-align: center;
+            display: block;
+            margin: 30px auto;
+            & + p{
+              text-align: center;
+            }
+          }
+        }
+        &.users{
+          .info{
+            font-size: 1.4em;
+          }
+        }
+        &.uploadSignature{
+          .information{
+            padding: 25px 0;
+            p{
+              margin: 0;
+              display: inline-block;
+              //vertical-align: middle;
+              font-size: 1.4em;
+            }
+            span{
+              vertical-align: baseline;
+              font-size: 1.0em;
+            }
+            i{
+              font-size: 2.0em;
+              margin-top: 1px;
+              transition: all .3s;
+              &:hover{
+                color: #68b4e4;
+                transition: all .3s;
+                cursor: pointer;
+              }
+            }
+          }
+          .progress{
+            height: 40px;
+            text-align: center;
+            padding-top: 5px;
+            position: relative;
+            background-color: rgba(113, 113, 113, 0.15);
+            .progress-bar{
+              width: 0;
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              background-color: #68b4e4;
+              z-index: 1;
+            }
+            p{
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 7px;
+              margin: 0;
+              z-index: 2;
+              color: #fff;
+            }
+          }
+          .file_upload {
+            position: relative;
+            overflow: hidden;
+            background: rgba(113, 113, 113, 0.15);
+            border: 1px dashed #656565;
+            line-height: 1;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            padding: 50px;
+            width: 100%;
+            transition: all .3s;
+            i{
+              color: #ffffff;
+              font-size: 5.5em;
+            }
+            input[type=file] {
+              position: absolute;
+              top: 0; right: 0;
+              width: 100%;
+              height: 100%;
+              font-size: 5.5em;
+              opacity: 0;
+              filter: alpha(opacity=0);
+              cursor: pointer;
+            }
+            &:hover{
+              background-color: #68b4e4;
+              transition: all .3s;
+              cursor: pointer;
+            }
+          }
         }
       }
       .modal-footer{

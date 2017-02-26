@@ -1,6 +1,6 @@
 @import "sass/reset",
         "sass/fonts",
-        "sass/inputs-buttons",
+        "sass/inputsButtons",
         "sass/datepicker",
         "app/modalTemplates/modals",
         "app/commonRouts/authorization/authorization",
@@ -15,6 +15,8 @@
         "app/adminRouts/userNotifications/userNotifications",
         "app/adminRouts/createUser/createUser",
         "app/adminRouts/adminDashboard/adminDashboard",
+        "app/adminRouts/contentRouts/questionsContent/questionsContent",
+        "app/adminRouts/contentRouts/legalContent/legalContent",
         "app/components/header/header",
         "app/components/footer/footer",
         "app/components/preloader/preloader",
@@ -94,7 +96,7 @@ form{
     font: 300 1.3em 'CenturyGothic-Regular';
     font-style: italic;
     margin: 5px 0  20px 10px;
-    color: #0967bc;
+    color: #ff4f2a;
     transition: all .5s;
   }
   span{
@@ -103,4 +105,9 @@ form{
     display: block;
     text-transform: uppercase;
   }
+}
+.ng-dirty{
+ &.ng-invalid{
+   border-color: #ff4f2a;
+ }
 }

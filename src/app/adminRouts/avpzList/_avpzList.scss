@@ -1,10 +1,19 @@
 .view-wrap{
   &.avpzList{
     .table{
-      padding: 5% 0;
-
+      padding: 0 0 5% 0;
       p{
         display: inline-block;
+      }
+      a{
+        color: #68b4e4;
+        margin-left: 5px;
+        font-size: 1.0em;
+        transition: all .3s;
+        &:hover{
+          transition: all .3s;
+          color: #5c9fc9;
+        }
       }
       i{
         font-size: 1.8em;
@@ -22,5 +31,6 @@
         }
       }
     }
+
   }
 }

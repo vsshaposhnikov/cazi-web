@@ -1,0 +1,45 @@
+<div class="view-wrap legalBaseContent">
+    <div class="center white">
+        <div class="search-bar clear-fix">
+            <h2 class="fl">Тут ви можете змінювати контент сторінки "Нормативна база"</h2>
+            <div class="blue-btn fr" ng-click="openCreateModal()">Створити запис</div>
+        </div>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">
+                    №
+                </div>
+                <div class="cell">
+                    Назва
+                </div>
+                <div class="cell">
+                    Дата
+                </div>
+                <div class="cell text-center">
+                    Завантажте додаток
+                </div>
+                <div class="cell text-center">
+                    Видалити
+                </div>
+            </div>
+            <div class="row" ng-repeat="item in legalBase">
+                <div class="cell">
+                    {{$index + 1}}.
+                </div>
+                <div class="cell">
+                    <p ng-click="openEditModal(item)">{{::item.title}}</p>
+                </div>
+                <div class="cell">
+                    {{::item.date}}
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-upload upload" aria-hidden="true" ng-click="openUploadModal(item)"></i>
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-trash del" aria-hidden="true" ng-click="openDeleteModal(item)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<preloader ng-show="isLoading"></preloader>

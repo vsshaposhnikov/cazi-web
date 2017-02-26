@@ -1,0 +1,16 @@
+<div class="modal-content signaturesStorage">
+   <p class="title" ng-if="storageList.length != 0">Керуйте файлами сховища сигнатур:</p>
+   <p ng-repeat="item in storageList" class="clear-fix file">
+      <i class="fa fa-file" aria-hidden="true"></i>
+      {{item}}
+      <i class="fa fa-trash fr" aria-hidden="true" ng-click="deleteFile(item)"></i>
+   </p>
+   <i class="fa fa-hdd-o whenEmpty" aria-hidden="true" ng-if="storageList.length == 0" ></i>
+   <p ng-if="storageList.length == 0">Наразі сховище пусте</p>
+
+</div>
+<div class="modal-footer">
+   <button class="blue-btn" ng-click="closeThisDialog()">Продовжити роботу</button>
+   <button class="blue-btn" ng-if="storageList.length != 0" ng-click="deleteAll()">Очистити сховище</button>
+</div>
+<preloader ng-show="isLoading"></preloader>

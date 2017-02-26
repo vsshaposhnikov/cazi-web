@@ -1,0 +1,26 @@
+<div class="modal-content uploadSignature">
+   <p class="title">
+      Завантажте додаток для запису:
+   </p>
+   <label class="file_upload">
+      <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+      <input type="file" nv-file-select=""
+             accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                     text/plain, application/pdf" uploader="uploader" />
+   </label>
+   <div ng-repeat="item in uploader.queue">
+      <div class="information clear-fix">
+         <p class="fl">{{item.file.name}} - <span class="">{{ item.file.size/1024/1024|number:2 }} MB</span></p>
+         <i class="fa fa-trash fr" aria-hidden="true" ng-click="item.remove()"></i>
+      </div>
+      <div class="progress" style="margin-bottom: 0;">
+         <p>{{item.progress}} %</p>
+         <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+      </div>
+   </div>
+</div>
+<div class="modal-footer">
+   <button class="blue-btn" ng-if="buttonFlag" ng-click="closeThisDialog()">Скасувати</button>
+   <button class="blue-btn" ng-if="buttonFlag" ng-click="uploadAttachment()">Зберегти</button>
+   <button class="blue-btn" ng-if="!buttonFlag" ng-click="closeThisDialog()">Продовжити роботу</button>
+</div>

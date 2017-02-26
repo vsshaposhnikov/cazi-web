@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('caziWeb')
-    .controller('usersListController', function($scope, restFullApi, localStorageService, ngDialog){
+    .controller('usersListController', function($scope, restFullApi, localStorageService, ngDialog, $state){
         $scope.isLoading = true;
         $scope.userData = {
             token: localStorageService.get('user').token,
@@ -22,7 +22,20 @@ angular
             //console.log($scope.userData);
 
         });
-
+        $scope.openActivateModal = function (user) {
+            ngDialog.open({
+                template: 'app/modalTemplates/setActiveUser.html',
+                showClose: false,
+                controller: 'updateUserController',
+                width: '40%',
+                closeByNavigation: true,
+                resolve: {
+                    user: function() {
+                        return user;
+                    }
+                }
+            });
+        };
         $scope.updateUser = function (user) {
             ngDialog.open({
                 template: 'app/modalTemplates/updateUser.html',

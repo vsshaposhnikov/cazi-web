@@ -1,4 +1,13 @@
-.userNotifications{
+.view-wrap{
 
-
+  &.userNotifications{
+    .emptyArr{
+      display: block;
+      text-align: center;
+      padding: 5% 0;
+      margin: 0 auto;
+      font-size: 10em;
+      color: #dedede;
+    }
+  }
 }
