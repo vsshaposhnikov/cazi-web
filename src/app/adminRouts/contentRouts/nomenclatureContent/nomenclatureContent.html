@@ -1,5 +1,59 @@
 <div class="view-wrap nomenclature">
     <div class="center white">
-        <h1>nomenclatureContent</h1>
+        <div class="search-bar clear-fix">
+            <h2 class="fl">Модуль редагування сторінки "Перелік АВПЗ"</h2>
+            <div class="blue-btn fr" ng-click="openCreateNomenclatureModal()">Створити засіб</div>
+            <div class="blue-btn fr" ng-click="openCreateVendorModal()">Створити вендора</div>
+            <div class="blue-btn fr" ng-click="openGetVendorsModal()">Усі вендори</div>
+        </div>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">
+                    №
+                </div>
+                <div class="cell">
+                    Опис
+                </div>
+                <div class="cell">
+                    Призначення
+                </div>
+                <div class="cell">
+                    Адреса
+                </div>
+                <div class="cell">
+                    Експертний висновок
+                </div>
+                <div class="cell">
+                    Вендор
+                </div>
+                <div class="cell text-center">
+                    Видалити
+                </div>
+            </div>
+            <div class="row" ng-repeat="item in avpzNomenclature">
+                <div class="cell">
+                    {{$index + 1}}.
+                </div>
+                <div class="cell">
+                    <p ng-click="openEditModal(item)">{{::item.title}}</p>
+                </div>
+                <div class="cell">
+                    {{::item.content}}
+                </div>
+                <div class="cell">
+                    {{::item.address}}
+                </div>
+                <div class="cell">
+                    {{::item.certificate}}
+                </div>
+                <div class="cell">
+                    {{::item.vendorName}}
+                </div>
+                <div class="cell text-center">
+                    <i class="fa fa-trash del" aria-hidden="true" ng-click="openDeleteModal(item)"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<preloader ng-show="isLoading"></preloader>

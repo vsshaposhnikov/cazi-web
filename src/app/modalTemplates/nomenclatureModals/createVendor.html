@@ -1,0 +1,11 @@
+<div class="modal-content questions">
+    <form name="formData">
+        <p class="title">Введіть данні для створення вендора АВПЗ</p>
+        <span>Введіть назву нового вендора:</span>
+        <input type="text" ng-model="nomenclatureData.vendorInfo.vendorName" required>
+    </form>
+</div>
+<div class="modal-footer">
+   <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
+   <button class="blue-btn" ng-click="createNewVendor()" ng-disabled="formData.$invalid || formData.$pristine ">Створити</button>
+</div>

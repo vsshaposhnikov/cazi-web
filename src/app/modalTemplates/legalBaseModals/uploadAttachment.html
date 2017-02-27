@@ -21,6 +21,6 @@
 </div>
 <div class="modal-footer">
    <button class="blue-btn" ng-if="buttonFlag" ng-click="closeThisDialog()">Скасувати</button>
-   <button class="blue-btn" ng-if="buttonFlag" ng-click="uploadAttachment()">Зберегти</button>
+   <button class="blue-btn" ng-if="buttonFlag" ng-click="uploadAttachment()" ng-disabled="uploader.queue.length <= 0">Зберегти</button>
    <button class="blue-btn" ng-if="!buttonFlag" ng-click="closeThisDialog()">Продовжити роботу</button>
 </div>

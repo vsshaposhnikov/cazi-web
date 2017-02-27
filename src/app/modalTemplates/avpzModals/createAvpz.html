@@ -1,8 +1,10 @@
 <div class="modal-content">
-    <p class="title">Введіть назву нового АВПЗ:</p>
-    <input type="text" ng-model="avpzData.avpzInfo.title">
+    <form name="formData">
+        <p class="title">Введіть назву нового АВПЗ:</p>
+        <input type="text" ng-model="avpzData.avpzInfo.title">
+    </form>
 </div>
 <div class="modal-footer">
    <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
-   <button class="blue-btn" ng-click="createAvpz()">Створити</button>
+   <button class="blue-btn" ng-click="createAvpz()" ng-disabled="formData.$invalid || formData.$pristine ">Створити</button>
 </div>

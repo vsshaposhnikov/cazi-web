@@ -1,11 +1,13 @@
 <div class="modal-content questions">
-    <p class="title">Введіть данні для створення нової пари "питання - відповідь"</p>
-    <span>Введіть питання:</span>
-    <input type="text" ng-model="questionData.questionInfo.question">
-    <span>Введіть відповідь:</span>
-    <textarea ng-model="questionData.questionInfo.answer"></textarea>
+    <form name="formData">
+        <p class="title">Введіть данні для створення нової пари "питання - відповідь"</p>
+        <span>Введіть питання:</span>
+        <input type="text" ng-model="questionData.questionInfo.question" required>
+        <span>Введіть відповідь:</span>
+        <textarea ng-model="questionData.questionInfo.answer" required></textarea>
+    </form>
 </div>
 <div class="modal-footer">
    <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
-   <button class="blue-btn" ng-click="createNewQuestion()">Створити</button>
+   <button class="blue-btn" ng-click="createNewQuestion()" ng-disabled="formData.$invalid || formData.$pristine ">Створити</button>
 </div>

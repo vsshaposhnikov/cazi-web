@@ -1,0 +1,26 @@
+<div class="modal-content avpzNomenclature">
+    <form name="formData">
+        <p class="title">Введіть данні для створення вендора АВПЗ</p>
+        <span>Введіть опис:</span>
+        <input type="text" ng-model="nomenclatureData.vendorInfo.title" required>
+        <span>Введіть призначення:</span>
+        <textarea ng-model="nomenclatureData.vendorInfo.content" required></textarea>
+        <span>Введіть адресу:</span>
+        <input type="text" ng-model="nomenclatureData.vendorInfo.address" required>
+        <span>Введіть експертний висновок:</span>
+        <input type="text" ng-model="nomenclatureData.vendorInfo.certificate" required>
+        <span>Оберіть вендора:</span>
+        <div class="radio-box" ng-repeat="item in vendorsArr">
+            <input type="radio" id="{{::item.vendorName}}"
+                   ng-model="$parent.nomenclatureData.vendorInfo.vendorId"
+                   value="{{::item.id}}"
+                   ng-checked="$parent.nomenclatureData.vendorInfo.vendorName == item.vendorName"
+                   name="vendor">
+            <label for="{{::item.vendorName}}">{{::item.vendorName}}</label>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+   <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
+   <button class="blue-btn" ng-click="editNomenclature()" ng-disabled="formData.$invalid || formData.$pristine ">Зберегти</button>
+</div>

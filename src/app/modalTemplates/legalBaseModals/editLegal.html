@@ -1,11 +1,13 @@
 <div class="modal-content legalBase">
-    <p class="title">Відредагуйте запис</p>
-    <span>Введіть текст:</span>
-    <textarea type="text" ng-model="legalBaseData.legalBaseInfo.title"></textarea>
-    <span>Введіть дату:</span>
-    <input type="text" ng-model="legalBaseData.legalBaseInfo.date">
+    <form name="formData">
+        <p class="title">Відредагуйте запис</p>
+        <span>Введіть текст:</span>
+        <textarea type="text" ng-model="legalBaseData.legalBaseInfo.title" required></textarea>
+        <span>Введіть дату:</span>
+        <input type="text" ng-model="legalBaseData.legalBaseInfo.date" required>
+    </form>
 </div>
 <div class="modal-footer">
    <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
-   <button class="blue-btn" ng-click="editLegal()">Зберегти</button>
+   <button class="blue-btn" ng-click="editLegal()" ng-disabled="formData.$invalid || formData.$pristine ">Зберегти</button>
 </div>

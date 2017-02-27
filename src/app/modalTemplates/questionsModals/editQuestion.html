@@ -1,11 +1,13 @@
 <div class="modal-content questions">
+    <form name="formData">
     <p class="title">Відредагуйте пару "питання - відповідь"</p>
     <span>Введіть питання:</span>
     <input type="text" ng-model="questionData.questionInfo.question">
     <span>Введіть відповідь:</span>
-    <textarea ng-model="questionData.questionInfo.answer"></textarea>
+    <textarea ng-model="questionData.questionInfo.answer" required></textarea>
+    </form>
 </div>
 <div class="modal-footer">
    <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
-   <button class="blue-btn" ng-click="editQuestion()">Зберегти</button>
+   <button class="blue-btn" ng-click="editQuestion()" ng-disabled="formData.$invalid || formData.$pristine ">Зберегти</button>
 </div>

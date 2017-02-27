@@ -1,0 +1,12 @@
+<div class="modal-content avpzNomenclature">
+    <form name="formData">
+        <p class="title">Керуйте ведорами АВПЗ:</p>
+        <p ng-repeat="item in vendorsArr" class="clear-fix file">
+            {{item.vendorName}}
+            <i class="fa fa-trash fr" aria-hidden="true" ng-click="deleteVendor(item)"></i>
+        </p>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="blue-btn" ng-click="closeThisDialog()">Продовжити роботу</button>
+</div>

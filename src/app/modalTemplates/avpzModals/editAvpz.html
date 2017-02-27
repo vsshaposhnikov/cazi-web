@@ -1,8 +1,10 @@
 <div class="modal-content">
-    <p class="title">Внесіть зміни до назви АВПЗ:</p>
-    <input type="text" ng-model="avpz.title">
+    <form name="formData">
+        <p class="title">Внесіть зміни до назви АВПЗ:</p>
+        <input type="text" ng-model="avpz.title">
+    </form>
 </div>
 <div class="modal-footer">
    <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
-   <button class="blue-btn" ng-click="editAvpz()">Зберегти</button>
+   <button class="blue-btn" ng-click="editAvpz()" ng-disabled="formData.$invalid || formData.$pristine ">Зберегти</button>
 </div>

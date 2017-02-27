@@ -1,5 +1,54 @@
-<div class="view-wrap">
+<div class="view-wrap nomenclature">
     <div class="center white">
-        <h1>AVPZ List</h1>
+        <div class="search-bar clear-fix">
+            <h2>Відфільтруйте перелік АВПЗ за потрібним вендором</h2>
+            <div class="radio-box" ng-repeat="item in vendorsArr">
+                <input type="radio" id="{{::item.vendorName}}" ng-model="$parent.nomenclatureData.vendorInfo.vendorId" value="{{::item.id}}" name="vendor">
+                <label for="{{::item.vendorName}}">{{::item.vendorName}}</label>
+            </div>
+        </div>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">
+                    №
+                </div>
+                <div class="cell">
+                    Опис
+                </div>
+                <div class="cell">
+                    Призначення
+                </div>
+                <div class="cell">
+                    Адреса
+                </div>
+                <div class="cell">
+                    Експертний висновок
+                </div>
+                <div class="cell">
+                    Вендор
+                </div>
+            </div>
+            <div class="row" ng-repeat="item in avpzNomenclature">
+                <div class="cell">
+                    {{$index + 1}}.
+                </div>
+                <div class="cell">
+                    <p ng-click="openEditModal(item)">{{::item.title}}</p>
+                </div>
+                <div class="cell">
+                    {{::item.content}}
+                </div>
+                <div class="cell">
+                    {{::item.address}}
+                </div>
+                <div class="cell">
+                    {{::item.certificate}}
+                </div>
+                <div class="cell">
+                    {{::item.vendorName}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<preloader ng-show="isLoading"></preloader>
