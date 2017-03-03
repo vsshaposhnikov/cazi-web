@@ -1,6 +1,6 @@
 'use strict';
 angular.module('caziWeb')
-    .controller('signaturesController', function(restFullApi, $scope, localStorageService){
+    .controller('signaturesController', function(restFullApi, $scope, localStorageService, ngDialog){
         var avpzData = {
             userInfo:{
                 id: localStorageService.get('user').id
@@ -14,4 +14,15 @@ angular.module('caziWeb')
                 });
         }
         getAvpzListByUser();
+
+        $scope.openAdminRequestModal = function () {
+            ngDialog.open({
+                template: 'app/modalTemplates/adminRequest.html',
+                showClose: false,
+                controller: 'adminRequestModalController',
+                width: '55%',
+                closeByNavigation: true
+            });
+        };
+
     });

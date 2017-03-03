@@ -1,5 +1,23 @@
-<div class="view-wrap">
+<div class="view-wrap statistics">
     <div class="center white">
-        <h1>Statistics</h1>
+        <div class="userCreationPie">
+            <p>Діаграмма кількості реєстраційних заявок корстувачів за часовими відрізками</p>
+            <canvas id="pie" class="chart chart-pie" width="400" height="250"
+                    chart-data="statisticsData.pie.data" chart-colors="statisticsData.pie.colors" chart-labels="statisticsData.pie.labels" chart-options="statisticsData.pie.options">
+            </canvas>
+        </div>
+        <div class="userCreationPie">
+            <p>Діаграмма активних корстувачів по обасним центрам України</p>
+            <canvas id="bubble" class="chart-horizontal-bar" width="400" height="550"
+                    chart-data="statisticsData.base.data"  chart-labels="statisticsData.base.labels" chart-options="statisticsData.base.options" >
+            </canvas>
+        </div>
+        <div class="userCreationPie">
+            <p>Кількість зареєстрованих органів державної влади станом на {{statisticsData.govCounter.currentDate}}</p>
+            <span counter value="statisticsData.govCounter.counter" to="statisticsData.govCounter.count" duration="2000" effect="easeInCirc">
+                {{ statisticsData.govCounter.counter | number:0 }}
+            </span>
+        </div>
     </div>
 </div>
+<preloader ng-show="isLoading"></preloader>

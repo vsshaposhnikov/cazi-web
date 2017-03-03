@@ -1,0 +1,19 @@
+<div class="modal-content adminRequest">
+    <p class="title">Задайте питання фахівцю центру антивірусного захисту:</p>
+    <form name="formData" novalidate>
+        <span>тема питання</span>
+        <input type="text" name="title" ng-model="adminRequestData.adminRequest.title" required>
+        <div ng-messages="formData.title.$error" role="alert" ng-if="formData.title.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+        <span>текст питання</span>
+        <textarea type="text" name="content" ng-model="adminRequestData.adminRequest.content" required></textarea>
+        <div ng-messages="formData.content.$error" role="alert" ng-if="formData.content.$dirty">
+            <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+   <button class="blue-btn" ng-click="closeThisDialog()">Скасувати</button>
+   <button class="blue-btn" ng-click="sendRequest()" ng-disabled="formData.$invalid || formData.$pristine ">Надіслати</button>
+</div>

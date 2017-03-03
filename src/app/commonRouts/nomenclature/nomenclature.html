@@ -1,7 +1,7 @@
 <div class="view-wrap nomenclature">
     <div class="center white">
         <div class="search-bar clear-fix">
-            <h2>Відфільтруйте перелік АВПЗ за потрібним вендором</h2>
+            <h2>Тут ви можете обрати необхідний антивірусний програмний засіб</h2>
             <div class="radio-box" ng-repeat="item in vendorsArr">
                 <input type="radio" id="{{::item.vendorName}}" ng-model="$parent.nomenclatureData.vendorInfo.vendorId" value="{{::item.id}}" name="vendor">
                 <label for="{{::item.vendorName}}">{{::item.vendorName}}</label>

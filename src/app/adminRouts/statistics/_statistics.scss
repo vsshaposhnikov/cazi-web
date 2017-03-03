@@ -1,99 +1,29 @@
-.search-bar{
-  padding: 35px 0;
-  input{
-    display: inline-block;
-    vertical-align: bottom;
-    padding: 5px 10px;
-    width: 75.9%;
-    margin: 0;
-  }
-  .blue-btn{
-    height: 32px;
-    font-size: 1.4em;
-    line-height: 14px;
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: bottom;
-  }
-  .blue-box{
-    display: inline-block;
-    vertical-align: middle;
-    width: 32px;
-    height: 32px;
-    margin-left: 5px;
-    background-color: #68b4e4;
-    text-align: center;
-    transition: all .3s;
-    &:hover{
-      cursor: pointer;
-      transition: all .3s;
-      background-color: #5990bb;
-    }
-
-    i{
-      color: #ffffff;
-      font-size: 1.8em;
-      margin-top: 7px;
-    }
-  }
-}
-.table {
-  width: 100%;
-  display: table;
-  padding-bottom: 35px;
-  .row {
-    display: table-row;
-    background: #f6f6f6;
-    &:nth-of-type(odd) {
-      background: #e9e9e9;
-    }
-    &.header {
-      color: #ffffff;
-      text-align: justify;
-      background: #eaad44;
-    }
-    .cell {
-      padding: 6px 12px;
-      font: 300 1.2em'CenturyGothic-Regular';
-      display: table-cell;
-      &.organization{width: 30%}
-      &.lastVisit{width: 13.3%}
-      &.text-center{
-        text-align: center;
+.view-wrap{
+  &.statistics{
+    .userCreationPie{
+      width: 49.8%;
+      display: inline-block;
+      vertical-align: top;
+      padding: 25px;
+      height: 400px;
+      text-align: center;
+      border-right: 1px solid #515150;
+      &:nth-child(even){
+        border-right: 0;
       }
-      i{
-        color: #eaad44;
-        font-size: 1.6em;
-        transition: color .3s;
-        &.isActive{
-          margin-right: 0;
-        }
-        &.red{
-          color: #d40a0a;
-        }
-        &:hover{
-          color: #ab812f;
-          cursor: pointer;
-          transition: color .3s;
-        }
+      canvas{
+        margin: 0 auto;
+      }
+      p{
+        padding-bottom: 25px;
+        font: 300 1.6em 'CenturyGothic-Regular';
+      }
+      span{
+        color: #515150;
+        display: inline-block;
+        padding-top: 10%;
+        font-size: 10.5em;
       }
     }
-  }
-}
-@media screen and (max-width: 580px) {
-  .cell {
-    padding: 2px 12px;
-    display: block;
-  }
-}
-@media screen and (max-width: 580px) {
-  .row {
-    padding: 8px 0;
-    display: block;
-  }
-}
-@media screen and (max-width: 580px) {
-  .table {
-    display: block;
   }
 }

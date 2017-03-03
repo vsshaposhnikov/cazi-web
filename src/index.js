@@ -1,5 +1,5 @@
 angular
-    .module('caziWeb', ['ui.router', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'ngScrollbars', 'angularFileUpload'])
+    .module('caziWeb', ['ui.router', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'ngScrollbars', 'angularFileUpload', 'chart.js', 'counter'])
     .constant('API_URL', 'http://cazi-server/api/')
     //.constant('API_URL', 'http://10.10.11.47/server/public/api/')
     .run(function ($rootScope, localStorageService, $location, $state) {

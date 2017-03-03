@@ -33,6 +33,11 @@
             }
           }
         }
+        &.adminRequest{
+          textarea{
+            height: 150px;
+          }
+        }
         &.avpz{
           .input-block{
             span{
