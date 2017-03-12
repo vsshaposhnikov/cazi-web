@@ -26,13 +26,14 @@ angular.module('caziWeb')
                 count: null
             },
             base: {
-                colors: ['#515150'],
+                colors: ['#288fc4', '#fcb315'],
                 labels: null,
                 options: {
                     tooltips: {
                         bodyFontSize: 14
-                    }
-                }
+                    },
+                },
+                data: []
             }
         };
         $scope.data = [2, 2, 1];
@@ -41,7 +42,7 @@ angular.module('caziWeb')
             restFullApi.sendPost('getUserCreationInfo', statistInfo)
                 .then(function(pieInfo){
                     $scope.isLoading = false;
-                    console.log(pieInfo.data);
+                    //console.log(pieInfo.data);
                     $scope.statisticsData.pie.data = pieInfo.data;
                 });
         }
@@ -50,7 +51,7 @@ angular.module('caziWeb')
             restFullApi.sendPost('getCountGovOrganizations', statistInfo)
                 .then(function(govCounter){
                     $scope.isLoading = false;
-                    console.log(govCounter.data);
+                    //console.log(govCounter.data);
                     $scope.statisticsData.govCounter.count = govCounter.data;
                 });
         }
@@ -59,9 +60,11 @@ angular.module('caziWeb')
             restFullApi.sendPost('getActiveUsers', statistInfo)
                 .then(function(activeUsers){
                     $scope.isLoading = false;
-                    console.log(activeUsers.data);
+                    //console.log(activeUsers.data);
                     $scope.statisticsData.base.labels = activeUsers.data.labels;
-                    $scope.statisticsData.base.data = activeUsers.data.data;
+                    $scope.statisticsData.base.data.push(activeUsers.data.active);
+                    $scope.statisticsData.base.data.push(activeUsers.data.notActive);
+                    //console.log($scope.statisticsData.base.data);
                 });
         }
         getActiveUsers();
