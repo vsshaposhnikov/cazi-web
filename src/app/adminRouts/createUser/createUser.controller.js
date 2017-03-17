@@ -1,10 +1,10 @@
 'use strict';
 angular.module('caziWeb')
-    .controller('createUserController', function($scope, restFullApi, $rootScope, localStorageService, $state, Notification){
+    .controller('createUserController', function($scope, restFullApi, $rootScope, localStorageService, $state, Notification, $timeout){
 
-        $scope.stepsForSwitch = ['firstStep', 'secondStep', 'thirdStep'];
+        $scope.stepsForSwitch = ['firstStep', 'secondStep', 'thirdStep', 'lastStep'];
 
-        $scope.counter = 0;
+        $scope.counter = 2;
 
         $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
 
@@ -18,13 +18,33 @@ angular.module('caziWeb')
                 class: 'secondStep'
             },
             {
-                name: 'Крок 3: Створити',
+                name: 'Крок 3: Статистика',
                 class: 'thirdStep'
+            },
+            {
+                name: 'Крок 4: Створити',
+                class: 'fourthStep'
             }
         ];
 
         var userData = {
             token: localStorageService.get('user').token
+        };
+        $scope.getChoice = function (choice, whoseChoice) {
+            switch (whoseChoice) {
+                case 'gov':
+                console.log(whoseChoice, choice.organizationName);
+                return $scope.selectedGov = choice;
+                break;
+                case 'region':
+                console.log(whoseChoice, choice.regionName);
+                return $scope.selectedRegion = choice;
+                break;
+                case 'vendor':
+                console.log(whoseChoice, choice.vendorName);
+                return $scope.selectedVendor = choice;
+                break;
+            }
         };
         $scope.getAvpzList = function () {
             restFullApi.sendPost('getAvpzList', userData)
@@ -33,7 +53,33 @@ angular.module('caziWeb')
                 })
         };
         $scope.getAvpzList();
-
+        $scope.getGovOrganizationList = function () {
+            restFullApi.sendPost('getGovOrganizationList', userData)
+                .then(function(govOrganizationList){
+                    //console.log(govOrganizationList);
+                    $scope.selectedGov = govOrganizationList.data[0];
+                    govOrganizationList != undefined ? $scope.govOrganizationList = govOrganizationList.data : $scope.govOrganizationList = null;
+                })
+        };
+        $scope.getGovOrganizationList();
+        $scope.getRegionsList = function () {
+            restFullApi.sendPost('getRegionsList', userData)
+                .then(function(regionsList){
+                    //console.log(govOrganizationList);
+                    $scope.selectedRegion = regionsList.data[0];
+                    regionsList != undefined ? $scope.regionsList = regionsList.data : $scope.regionsList = null;
+                })
+        };
+        $scope.getRegionsList();
+        $scope.getAllAvpzVendors = function () {
+            restFullApi.sendPost('getAllAvpzVendors', userData)
+                .then(function(vendorsList){
+                    //console.log(govOrganizationList);
+                    $scope.selectedVendor = vendorsList.data[0];
+                    vendorsList != undefined ? $scope.vendorsList = vendorsList.data : $scope.vendorsList = null;
+                })
+        };
+        $scope.getAllAvpzVendors();
 
         $scope.newUserData = {
             userInfo: {
@@ -76,6 +122,5 @@ angular.module('caziWeb')
             $scope.counter++;
             $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
         };
-
 
 });

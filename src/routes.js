@@ -1,6 +1,6 @@
 angular
   .module('caziWeb')
-  .config(routesConfig, NotificationProvider, localStorageServiceProvider, ScrollBarsProvider);
+  .config(routesConfig, NotificationProvider, localStorageServiceProvider);
 
 /** @ngInject */
 function routesConfig($urlRouterProvider, $locationProvider) {
@@ -19,14 +19,4 @@ function localStorageServiceProvider() {
         .setPrefix('caziWeb')
         .setStorageType('sessionStorage')
         .setNotify(true, true)
-}
-function ScrollBarsProvider () {
-    ScrollBarsProvider.defaults = {
-        scrollButtons: {
-            scrollAmount: 'auto',
-            enable: true
-        },
-        axis: 'y'
-    }
-
 }

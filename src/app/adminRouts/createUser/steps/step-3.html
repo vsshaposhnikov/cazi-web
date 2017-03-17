@@ -1,15 +1,43 @@
-<div class="third-block">
-    <div class="column">
-        <p class="title">Особисті дані користувача:</p>
-        <span><span>ПІБ:</span> {{ newUserData.userInfo.firstName }} {{ newUserData.userInfo.lastName }}</span>
-        <span><span>Посада:</span> {{ newUserData.userInfo.position }}</span>
-        <span><span>Установа:</span> {{ newUserData.userInfo.organization }}</span>
-        <span><span>Телефон:</span> {{ newUserData.userInfo.phone }}</span>
-        <span><span>Email:</span> {{ newUserData.userInfo.email }}</span>
-        <span><span>Логін:</span> {{ newUserData.userInfo.login }}</span>
+<div class="thirdStep">
+    <p class="title">Оберіть вендора, який першим обраний у заявці користувача:</p>
+    <div class="select-drop-down" drop-down ng-click="vendors = !vendors">
+        <div class="selected-item">
+            <p>{{selectedVendor.vendorName}}</p>
+        </div>
+        <div class="select-items">
+            <ul>
+                <li ng-repeat="vendor in vendorsList" ng-click="getChoice(vendor, 'vendor')" ng-if="vendor.id !== selectedVendor.id">
+                    <p>{{vendor.vendorName}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="column">
-        <p class="title">Обрані Антивірусні програмні засоби:</p>
-        <span ng-repeat="item in avpzListForShow">{{ $index+1 }}. {{ item.title }}</span>
+    <p class="title">Оберіть державну організацію, до якої належить користувач:</p>
+    <div class="select-drop-down" drop-down ng-click="gov = !gov">
+        <div class="selected-item">
+            <p>{{selectedGov.organizationName}}</p>
+        </div>
+        <div class="select-items">
+            <input ng-model="govSearch" placeholder="введіть пошуковий запит">
+            <ul ng-scrollbars ng-scrollbars-config="config">
+                <li ng-repeat="organization in govOrganizationList | filter:govSearch" ng-click="getChoice(organization, 'gov')" ng-if="organization.id !== selectedGov.id">
+                    <p>{{organization.organizationName}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="title">Оберіть регіон, до якого належить користувач:</p>
+    <div class="select-drop-down" drop-down ng-click="regions = !regions" >
+        <div class="selected-item">
+            <p>{{selectedRegion.regionName}}</p>
+        </div>
+        <div class="select-items">
+            <input ng-model="regionSearch" placeholder="введіть пошуковий запит">
+            <ul ng-scrollbars ng-scrollbars-config="config">
+                <li ng-repeat="region in regionsList | filter:regionSearch" ng-click="getChoice(region, 'region')" ng-if="region.id !== selectedRegion.id">
+                    <p>{{region.regionName}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

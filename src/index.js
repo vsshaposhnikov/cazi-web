@@ -1,5 +1,5 @@
 angular
-    .module('caziWeb', ['ui.router', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'ngScrollbars', 'angularFileUpload', 'chart.js', 'counter'])
+    .module('caziWeb', ['ui.router', 'ngScrollbars', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'angularFileUpload', 'chart.js', 'counter'])
     .constant('API_URL', 'http://cazi-server/api/')
     //.constant('API_URL', 'http://10.10.11.47/server/public/api/')
     .run(function ($rootScope, localStorageService, $location, $state) {
@@ -55,6 +55,16 @@ angular
                 }
             }
         );
+
+        $rootScope.config = {
+            autoHideScrollbar: false,
+            theme: 'minimal-dark',
+            advanced:{
+                updateOnContentResize: true
+            },
+            setHeight: 150,
+            scrollInertia: 0
+        };
 
         $rootScope.validationPatterns = {
             emailCheck: "^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*",

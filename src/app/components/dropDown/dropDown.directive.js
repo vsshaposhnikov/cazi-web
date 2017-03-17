@@ -9,6 +9,9 @@ angular.module('caziWeb')
                 $(element).click(function(e){
                     e.stopPropagation();
                     element.toggleClass('opened');
+                });
+                $(element.find('input')).click(function(e){
+                    e.stopPropagation();
                 })
             }
         };
