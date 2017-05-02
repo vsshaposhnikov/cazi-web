@@ -19,6 +19,7 @@
         </div>
         <div class="select-items">
             <input ng-model="govSearch" placeholder="введіть пошуковий запит">
+            <i class="fa fa-plus" ng-click="openGovModal()"></i>
             <ul ng-scrollbars ng-scrollbars-config="config">
                 <li ng-repeat="organization in govOrganizationList | filter:govSearch" ng-click="getChoice(organization, 'gov')" ng-if="organization.id !== selectedGov.id">
                     <p>{{organization.organizationName}}</p>

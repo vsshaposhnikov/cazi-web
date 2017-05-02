@@ -1,10 +1,10 @@
 'use strict';
 angular.module('caziWeb')
-    .controller('createUserController', function($scope, restFullApi, $rootScope, localStorageService, $state, Notification, $timeout){
+    .controller('createUserController', function($scope, restFullApi, $rootScope, localStorageService, $state, ngDialog, Notification, $timeout){
 
-        $scope.stepsForSwitch = ['firstStep', 'secondStep', 'thirdStep', 'lastStep'];
+        $scope.stepsForSwitch = ['firstStep', 'secondStep', 'thirdStep', 'fourthStep'];
 
-        $scope.counter = 2;
+        $scope.counter = 0;
 
         $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
 
@@ -33,15 +33,15 @@ angular.module('caziWeb')
         $scope.getChoice = function (choice, whoseChoice) {
             switch (whoseChoice) {
                 case 'gov':
-                console.log(whoseChoice, choice.organizationName);
+                //console.log(whoseChoice, choice.organizationName);
                 return $scope.selectedGov = choice;
                 break;
                 case 'region':
-                console.log(whoseChoice, choice.regionName);
+                //console.log(whoseChoice, choice.regionName);
                 return $scope.selectedRegion = choice;
                 break;
                 case 'vendor':
-                console.log(whoseChoice, choice.vendorName);
+                //console.log(whoseChoice, choice.vendorName);
                 return $scope.selectedVendor = choice;
                 break;
             }
@@ -99,6 +99,11 @@ angular.module('caziWeb')
             $scope.newUserData.userInfo.creator =   localStorageService.get('user').firstName
                 +' '+
                 localStorageService.get('user').lastName;
+            $scope.newUserData.userInfo.statistics = {
+                govId: $scope.selectedGov.id,
+                regionId: $scope.selectedRegion.id,
+                vendorId: $scope.selectedVendor.id,
+            };
             //console.log($scope.newUserData);
 
             restFullApi.sendPost('createOrUpdateUser', $scope.newUserData)
@@ -123,4 +128,14 @@ angular.module('caziWeb')
             $scope.createUserSwitch = $scope.stepsForSwitch[$scope.counter];
         };
 
+        $scope.openGovModal = function () {
+            ngDialog.open({
+                template: 'app/modalTemplates/createGovOrganization.html',
+                showClose: false,
+                controller: 'govCreateController',
+                width: '55%',
+                closeByNavigation: true,
+                scope: $scope
+            });
+        };
 });

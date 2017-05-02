@@ -117,12 +117,19 @@
     font: 300 1.8em 'CenturyGothic-Regular';
     &:after{
       background-color: #68b4e4;
-      top: 30px;
+      top: 25px;
     }
     &:hover{
       color: #68b4e4;
     }
+    &.active{
+      color: #68b4e4;
+      &:after{
+        width: 100%;
+      }
+    }
   }
+
   .updateUser{
     span{
       text-transform: uppercase;

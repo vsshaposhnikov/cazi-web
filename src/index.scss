@@ -113,3 +113,16 @@ form{
    border-color: #ff4f2a;
  }
 }
+.fa-plus{
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #d6d6d6;
+  cursor: pointer;
+  transition: opacity .3s;
+  font-size: 2.0em;
+  &:hover{
+    transition: opacity .3s;
+    opacity: .7;
+  }
+}

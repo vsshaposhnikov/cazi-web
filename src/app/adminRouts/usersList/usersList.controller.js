@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('caziWeb')
-    .controller('usersListController', function($scope, restFullApi, localStorageService, ngDialog, $state){
+    .controller('usersListController', function($scope, restFullApi, localStorageService, ngDialog, $state, Notification){
         $scope.isLoading = true;
         $scope.userData = {
             token: localStorageService.get('user').token,
@@ -10,6 +10,7 @@ angular
             }
         };
         $scope.findUsers = function () {
+            //console.log($scope.userData);
             restFullApi.sendPost('findUsers', $scope.userData)
                 .then(function(users){
                     //console.log(users.data);
@@ -20,7 +21,6 @@ angular
         $scope.$watch('userData.userInfo.searchWord', function() {
             $scope.findUsers();
             //console.log($scope.userData);
-
         });
         $scope.openActivateModal = function (user) {
             ngDialog.open({

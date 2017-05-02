@@ -1,7 +1,8 @@
 <div class="modal-content avpz">
-    <div class="clear-fix">
-        <h2 ng-click="updateUserSwitch = 'userInfo'" class="underlined fl">Змініть дані користувача</h2>
-        <h2 ng-click="updateUserSwitch = 'avpz'" class="underlined fr">Змініть АВПЗ</h2>
+    <div class="tabsHead">
+        <h2 ng-click="updateUserSwitch = 'userInfo'; active = 0" class="underlined" ng-class="{'active': active == 0}">Змініть дані користувача</h2>
+        <h2 ng-click="updateUserSwitch = 'avpz'; active = 1" class="underlined" ng-class="{'active': active == 1}">Змініть АВПЗ</h2>
+        <h2 ng-click="updateUserSwitch = 'statistics'; active = 2" class="underlined" ng-class="{'active': active == 2}">Змініть статистичні дані</h2>
     </div>
     <div class="updateUser" ng-switch on="updateUserSwitch">
         <div class="userInfo" ng-switch-when="userInfo">
@@ -43,16 +44,64 @@
                     <div class="message" ng-message="required">Поле повна назва установи - не може бути порожнім</div>
                 </div>
             </form>
-        </div >
+        </div>
         <div class="avpz" ng-switch-when="avpz">
+            <div class="userNotHave">
+                <p>Оберіть потрібне АВПЗ:</p>
+                <div class="input-block" ng-repeat="item in avpzList | filter : {'isUsed' : false} track by $index">
+                    <span ng-click="item.isUsed = !item.isUsed;">{{item.title}}</span>
+                </div>
+            </div>
             <div class="userHave">
+                <p>Видаліть потрібне АВПЗ:</p>
                 <div class="input-block" ng-repeat="item in avpzList | filter : {'isUsed' : true} track by $index">
                     <span ng-click="item.isUsed = !item.isUsed;">{{item.title}}</span>
                 </div>
             </div>
-            <div class="userNotHave">
-                <div class="input-block" ng-repeat="item in avpzList | filter : {'isUsed' : false} track by $index">
-                    <span ng-click="item.isUsed = !item.isUsed;">{{item.title}}</span>
+        </div>
+        <div class="statistics" ng-switch-when="statistics">
+            <div class="thirdStep">
+                <p class="title">Оберіть вендора, який першим обраний у заявці користувача:</p>
+                <div class="select-drop-down" drop-down ng-click="vendors = !vendors">
+                    <div class="selected-item">
+                        <p>{{selectedVendor.vendorName}}</p>
+                    </div>
+                    <div class="select-items">
+                        <ul>
+                            <li ng-repeat="vendor in vendorsList" ng-click="getChoice(vendor, 'vendor')" ng-if="vendor.id !== selectedVendor.id">
+                                <p>{{vendor.vendorName}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="title">Оберіть державну організацію, до якої належить користувач:</p>
+                <div class="select-drop-down" drop-down ng-click="gov = !gov">
+                    <div class="selected-item">
+                        <p>{{selectedGov.organizationName}}</p>
+                    </div>
+                    <div class="select-items">
+                        <input ng-model="govSearch" placeholder="введіть пошуковий запит">
+                        <i class="fa fa-plus" ng-click="openGovModal()"></i>
+                        <ul ng-scrollbars ng-scrollbars-config="config">
+                            <li ng-repeat="organization in govOrganizationList | filter:govSearch" ng-click="getChoice(organization, 'gov')" ng-if="organization.id !== selectedGov.id">
+                                <p>{{organization.organizationName}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="title">Оберіть регіон, до якого належить користувач:</p>
+                <div class="select-drop-down" drop-down ng-click="regions = !regions" >
+                    <div class="selected-item">
+                        <p>{{selectedRegion.regionName}}</p>
+                    </div>
+                    <div class="select-items">
+                        <input ng-model="regionSearch" placeholder="введіть пошуковий запит">
+                        <ul ng-scrollbars ng-scrollbars-config="config">
+                            <li ng-repeat="region in regionsList | filter:regionSearch" ng-click="getChoice(region, 'region')" ng-if="region.id !== selectedRegion.id">
+                                <p>{{region.regionName}}</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

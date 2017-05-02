@@ -39,6 +39,14 @@
           }
         }
         &.avpz{
+          .tabsHead{
+            text-align: center;
+            h2{
+              &:nth-child(2){
+                margin: 0 15px 25px 15px;
+              }
+            }
+          }
           .input-block{
             span{
               display: block;
@@ -46,7 +54,31 @@
               font: 300 1.6em 'CenturyGothic-Regular';
             }
           }
-
+          .userHave,
+          .userNotHave{
+            p{
+              text-align: center;
+            }
+            .input-block{
+              span{
+                font: 300 1.4em 'CenturyGothic-Regular';
+              }
+            }
+          }
+          .statistics{
+            .select-drop-down{
+              width: auto;
+              .select-items{
+                ul{
+                  li{
+                    p{
+                      margin: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
         &.questions{
           textarea{

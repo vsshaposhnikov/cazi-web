@@ -2,7 +2,7 @@ angular
     .module('caziWeb', ['ui.router', 'ngScrollbars', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'angularFileUpload', 'chart.js', 'counter'])
     .constant('API_URL', 'http://cazi-server/api/')
     //.constant('API_URL', 'http://10.10.11.47/server/public/api/')
-    .run(function ($rootScope, localStorageService, $location, $state) {
+    .run(function ($rootScope, localStorageService, $location, $state, restFullApi) {
         var user = localStorageService.get('user');
 
         if (user) {
@@ -70,4 +70,5 @@ angular
             emailCheck: "^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*",
             textCheck: "^[а-яА-ЯёЁa-zA-Z ]+$"
         };
+
     });
