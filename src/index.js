@@ -2,7 +2,7 @@ angular
     .module('caziWeb', ['ui.router', 'ngScrollbars', 'ui-notification', 'LocalStorageModule', 'ngMessages', 'ngDialog', 'angularFileUpload', 'chart.js', 'counter'])
     .constant('API_URL', 'http://cazi-server/api/')
     //.constant('API_URL', 'http://10.10.11.47/server/public/api/')
-    .run(function ($rootScope, localStorageService, $location, $state, restFullApi) {
+    .run(function ($rootScope, localStorageService, $location, $state) {
         var user = localStorageService.get('user');
 
         if (user) {
